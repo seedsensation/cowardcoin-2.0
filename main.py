@@ -5,8 +5,7 @@ from commands import *
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
-
-
+import global_context
 
 load_dotenv(".env")
 TOKEN = os.getenv("DISCORD_TOKEN")  # retrieve token from .env file
@@ -36,7 +35,10 @@ async def on_ready():
 async def echo(ctx, arg):  # ctx = context of command, arg = second word
     await echo_send(ctx, arg)  # reply to the original message echoing back the second word
 
-
+# TO-DO LIST
+# 1. CREATE COIN FUNCTION
+# 2. GET COIN FUNCTION
+# 3. STORE COINS FUNCTION
 
 
 bot.run(TOKEN)
