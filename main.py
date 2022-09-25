@@ -1,12 +1,12 @@
 import logging
 import os
 from time import *
-
+from commands import *
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 
-from commands import echo
+
 
 load_dotenv(".env")
 TOKEN = os.getenv("DISCORD_TOKEN")  # retrieve token from .env file
@@ -33,8 +33,10 @@ async def on_ready():
 
 
 @bot.command()
-async def test(ctx, arg):  # ctx = context of command, arg = second word
-    await echo.echo(ctx, arg)  # reply to the original message echoing back the second word
+async def echo(ctx, arg):  # ctx = context of command, arg = second word
+    await echo_send(ctx, arg)  # reply to the original message echoing back the second word
+
+
 
 
 bot.run(TOKEN)
