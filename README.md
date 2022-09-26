@@ -4,7 +4,7 @@ This project is a little Discord bot that creates coins in a specified channel.
 
 ### To-Do List:
 
- 1. Format `readme.md` Properly
+ 1. ~~Format `readme.md` Properly~~
  2. Add Coin Creation
  3. Add "Coin Get"
  4. Store Coins
