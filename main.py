@@ -37,6 +37,10 @@ async def echo(ctx, arg):  # ctx = context of command, arg = second word
 
 # TO-DO LIST
 # 1. CREATE COIN FUNCTION
+@bot.command()
+async def create(ctx):
+    await create_send(ctx)
+
 # 2. GET COIN FUNCTION
 # 3. STORE COINS FUNCTION
 
