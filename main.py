@@ -25,6 +25,7 @@ logging.basicConfig(filename="logs\\%s.txt" % logtime,
 
 @bot.event
 async def on_ready():
+    await file_check()
     await bot.change_presence(activity=discord.Game(name="the economy 😎"))
     await create_coin()
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')

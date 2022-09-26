@@ -5,7 +5,8 @@ from dotenv import load_dotenv
 
 context = [
     "false",  # coin currently active
-    ""  # created coin message ctx
+    "",  # created coin message ctx
+    {}  # total number of coins
 ]
 
 intents = discord.Intents.all()  # grant all permissions

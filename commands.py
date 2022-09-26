@@ -1,6 +1,7 @@
 from commands_folder import echo_file
 from commands_folder import create_file
 from commands_folder import get_file
+from commands_folder import store_coins_file
 
 
 async def echo_send(ctx,arg):
@@ -14,3 +15,6 @@ async def create_coin():
 
 async def get_send(ctx):
     await get_file.get_command(ctx)
+
+async def file_check():
+    await store_coins_file.filecheck()
