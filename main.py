@@ -45,6 +45,12 @@ async def create(ctx):
 
 
 # 2. GET COIN FUNCTION
+
+@bot.command()
+async def get(ctx):
+    await get_send(ctx)
+
+
 # 3. STORE COINS FUNCTION
 
 
