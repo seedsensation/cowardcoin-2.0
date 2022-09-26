@@ -12,10 +12,9 @@ async def create_command(ctx):
     await create_coin(ctx)
 
 async def create_coin(ctx):
-    created_coin = await ctx.send("COIN ALERT! COIN ALERT!")
+    context[1] = await ctx.send("COIN ALERT! COIN ALERT!")
     print("Created Coin")
     context[0] = True
-    context[1] = created_coin
     await asyncio.sleep(30)
     if context[0]:
         await context[1].delete()

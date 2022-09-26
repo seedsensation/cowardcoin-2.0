@@ -18,3 +18,6 @@ async def get_send(ctx):
 
 async def file_check():
     await store_coins_file.filecheck()
+
+async def save_coin_to_file(ctx):
+    await store_coins_file.savecoins(ctx)
