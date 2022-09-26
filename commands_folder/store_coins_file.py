@@ -9,8 +9,11 @@ async def filecheck():
         coins = eval(coins_string)
     except (FileNotFoundError,TypeError,SyntaxError):
         coins = {}
-        for guild in bot.guilds:
-            for member in guild.members:
+    for guild in bot.guilds:
+        for member in guild.members:
+            if member.id in coins:
+                pass
+            else:
                 coins[member.id] = [0,0]
     print(coins)
     file = open("files\\text files\\\coins.txt","w")

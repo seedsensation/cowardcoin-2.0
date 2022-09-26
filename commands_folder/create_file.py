@@ -1,15 +1,17 @@
 from global_context import *
-import time
 from random import randint
 import asyncio
+
+
 async def create_command(ctx):
     if ctx == "":
         ctx = bot.get_channel(int(CHANNEL))
-    delay = float(randint(5,10))
-    await ctx.send("The coin will appear in the next 5-10 seconds.")
-    print("Executing Coin Creation in "+str(delay)+" seconds.")
-    await asyncio.sleep(delay)
+    print(ctx)
+    context[3] = float(randint(context[4], context[5]))
+    print("Executing Coin Creation in " + str(context[3]) + " seconds.")
+    await asyncio.sleep(context[3])
     await create_coin(ctx)
+
 
 async def create_coin(ctx):
     context[1] = await ctx.send("COIN ALERT! COIN ALERT!")

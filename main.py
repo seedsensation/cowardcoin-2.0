@@ -1,4 +1,5 @@
 import logging
+import asyncio
 
 from time import *
 from global_context import *
@@ -23,9 +24,12 @@ logging.basicConfig(filename="logs\\%s.txt" % logtime,
 async def on_ready():
     await file_check()
     await bot.change_presence(activity=discord.Game(name="the economy 😎"))
-    await create_coin()
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
     print('------')
+    while True:
+        if context[3] == 0:
+            ctx = bot.get_channel(int(CHANNEL))
+            await create_send(ctx)
 
 
 @bot.command()
@@ -48,7 +52,6 @@ async def get(ctx):
     await get_send(ctx)
 
 
-# 3. STORE COINS FUNCTION
-
 
 bot.run(TOKEN)
+
