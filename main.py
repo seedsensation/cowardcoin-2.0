@@ -1,8 +1,10 @@
 import logging
+import asyncio
 
 from time import *
 from global_context import *
 from commands import *
+from commands_folder.check_task import *
 
 
 
@@ -21,11 +23,16 @@ logging.basicConfig(filename="logs\\%s.txt" % logtime,
 
 @bot.event
 async def on_ready():
+    print(f'Logged in as {bot.user} (ID: {bot.user.id})')
+    print('------')
     await file_check()
     await bot.change_presence(activity=discord.Game(name="the economy 😎"))
     await create_coin()
-    print(f'Logged in as {bot.user} (ID: {bot.user.id})')
-    print('------')
+
+    loop = asyncio.get_event_loop()
+    task = loop.create_task(check())
+
+
 
 
 @bot.command()
@@ -47,8 +54,16 @@ async def create(ctx):
 async def get(ctx):
     await get_send(ctx)
 
+@bot.command()
+async def debug(ctx):
+    try:
+        debugtemp = context[1].name
+    except:
+        debugtemp = ""
+    debugcontext = context
+    debugcontext[1] = debugtemp
 
-# 3. STORE COINS FUNCTION
+    await ctx.send(str(context))
 
 
 bot.run(TOKEN)
