@@ -1,14 +1,14 @@
+import discord
 import logging
 import os
-from time import *
-from commands import *
-import discord
+
 from discord.ext import commands
 from dotenv import load_dotenv
-import global_context
+from time import *
+from global_context import *
+from commands import *
 
-load_dotenv(".env")
-TOKEN = os.getenv("DISCORD_TOKEN")  # retrieve token from .env file
+
 
 if not os.path.exists(strftime("logs\\%Y.%m.%d\\")):
     os.makedirs(strftime("logs\\%Y.%m.%d\\"))  # make a folder if it doesn't already exist with the name of today's date
@@ -20,13 +20,13 @@ logging.basicConfig(filename="logs\\%s.txt" % logtime,
                     format='%(levelname)s: %(asctime)s %(message)s',
                     datefmt='%m/%d/%Y %I:%M:%S')  # activates logging
 
-intents = discord.Intents.all()  # grant all permissions
-bot = commands.Bot(command_prefix="coin ", intents=intents)  # sets the default prefix to "coin ", grants intents
+
 
 
 @bot.event
 async def on_ready():
     await bot.change_presence(activity=discord.Game(name="the economy 😎"))
+    await create_coin()
     print(f'Logged in as {bot.user} (ID: {bot.user.id})')
     print('------')
 
@@ -35,11 +35,14 @@ async def on_ready():
 async def echo(ctx, arg):  # ctx = context of command, arg = second word
     await echo_send(ctx, arg)  # reply to the original message echoing back the second word
 
+
 # TO-DO LIST
 # 1. CREATE COIN FUNCTION
+
 @bot.command()
 async def create(ctx):
     await create_send(ctx)
+
 
 # 2. GET COIN FUNCTION
 # 3. STORE COINS FUNCTION
