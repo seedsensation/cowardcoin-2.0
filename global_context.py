@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 context = [
     "false",  # coin currently active
-    0,  # time left til next coin
+    ""  # created coin message ctx
 ]
 
 intents = discord.Intents.all()  # grant all permissions
