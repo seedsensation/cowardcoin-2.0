@@ -1,6 +1,6 @@
 from global_context import *
 
-async def leaderboard(ctx):
+async def leaderboard_command(ctx):
     file = open("files\\text files\\\coins.txt", "r")
     coins_string = file.read()
     file.close()

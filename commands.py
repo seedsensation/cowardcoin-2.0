@@ -24,4 +24,4 @@ async def save_coin_to_file(ctx):
     await store_coins_file.savecoins(ctx)
 
 async def leaderboard_send(ctx):
-    await leaderboard_file.leaderboard(ctx)
+    await leaderboard_file.leaderboard_command(ctx)
