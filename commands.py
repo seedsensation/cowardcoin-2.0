@@ -2,6 +2,7 @@ from commands_folder import echo_file
 from commands_folder import create_file
 from commands_folder import get_file
 from commands_folder import store_coins_file
+from commands_folder import leaderboard_file
 
 
 async def echo_send(ctx,arg):
@@ -21,3 +22,6 @@ async def file_check():
 
 async def save_coin_to_file(ctx):
     await store_coins_file.savecoins(ctx)
+
+async def leaderboard_send():
+    await leaderboard_file.leaderboard(ctx)

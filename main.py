@@ -60,5 +60,9 @@ async def debug(ctx):
 
     await ctx.send(str(context))
 
+@bot.command()
+async def leaderboard(ctx):
+    await leaderboard_send(ctx)
+
 
 bot.run(TOKEN)
