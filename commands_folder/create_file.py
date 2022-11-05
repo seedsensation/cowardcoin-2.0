@@ -15,10 +15,11 @@ async def create_coin(ctx):
     context[1] = await ctx.send("COIN ALERT! COIN ALERT!")
     print("Created Coin")
     context[0] = True
-    await asyncio.sleep(30)
+    await asyncio.sleep(context[7])
     if context[0]:
         await context[1].delete()
         print("Image file deleted, new coin ready")
         context[6] = True
+        context[0] = False
     else:
         print("New coin ready")

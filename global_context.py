@@ -8,9 +8,10 @@ context = [
     "",  # created coin message ctx
     {},  # total number of coins
     0,  # time until next coin
-    30,  # minimum number of seconds before next coin
-    3600,  # maximum number of seconds before next coin
+    1,  # minimum number of seconds before next coin
+    30,  # maximum number of seconds before next coin
     True,  # does a coin need to be created?
+    30, # time until coin expires
 ]
 
 intents = discord.Intents.all()  # grant all permissions
