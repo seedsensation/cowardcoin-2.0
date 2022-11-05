@@ -4,6 +4,7 @@ from commands_folder.echo_file import *
 from commands_folder.create_file import *
 from commands_folder.get_file import *
 from commands_folder.leaderboard_file import *
+from commands_folder.help_file import *
 
 from time import *
 from commands import *
@@ -36,15 +37,24 @@ async def on_ready():
 async def echo(ctx, arg):  # ctx = context of command, arg = second word
     await echo_send(ctx, arg)  # reply to the original message echoing back the second word
 
-commandslist = {"echo":echo_command,"get":get_command,"leaderboard":leaderboard_command,"debug":debug,"help":helpcoin}
+async def debug(ctx):
+    try:
+        debugtemp = context[1].name
+    except:
+        debugtemp = ""
+    debugcontext = context
+    debugcontext[1] = debugtemp
+
+    await ctx.send(str(context))
+
+commandslist = {"echo":echo_command,"get":get_command,"leaderboard":leaderboard_command,"debug":debug,"help":help_coin}
 
 @bot.command()
 async def coin(ctx,*args):
     if args[0] in commandslist:
-        if args[0].lower() == "echo":
-            await commandslist[args[0]](ctx,args[1])
-        else:
-            await commandslist[args[0]](ctx)
+        if args[0].lower() == "echo" or (args[0].lower() == "help"):
+            print("Hi")
+            await commandslist[args[0]](ctx,args)
     else:
         print("Invalid command by "+ctx.author.display_name+" - "+args[0])
 
