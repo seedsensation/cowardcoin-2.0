@@ -52,9 +52,12 @@ commandslist = {"echo":echo_command,"get":get_command,"leaderboard":leaderboard_
 @bot.command()
 async def coin(ctx,*args):
     if args[0] in commandslist:
+        print(args[0])
         if args[0].lower() == "echo" or (args[0].lower() == "help"):
             print("Hi")
             await commandslist[args[0]](ctx,args)
+        else:
+            await commandslist[args[0]](ctx)
     else:
         print("Invalid command by "+ctx.author.display_name+" - "+args[0])
 
