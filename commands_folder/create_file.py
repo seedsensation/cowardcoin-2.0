@@ -12,13 +12,16 @@ async def create_command(ctx):
     await create_coin(ctx)
 
 async def create_coin(ctx):
-    context[1] = await ctx.send("COIN ALERT! COIN ALERT!")
+    with open("files\\images\\gold.gif","rb") as f:
+        picture = discord.File(f)
+    context[1] = await ctx.send("A new coin has appeared!\nType !coin to claim it!",file=picture)
     print("Created Coin")
     context[0] = True
     await asyncio.sleep(context[7])
     if context[0]:
         await context[1].delete()
         print("Image file deleted, new coin ready")
+        await ctx.send("The coin escaped...")
         context[6] = True
         context[0] = False
     else:
