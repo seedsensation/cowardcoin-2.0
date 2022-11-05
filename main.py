@@ -1,8 +1,11 @@
 import logging
-import asyncio
+
+from commands_folder.echo_file import *
+from commands_folder.create_file import *
+from commands_folder.get_file import *
+from commands_folder.leaderboard_file import *
 
 from time import *
-from global_context import *
 from commands import *
 from commands_folder.check_task import *
 
@@ -33,36 +36,16 @@ async def on_ready():
 async def echo(ctx, arg):  # ctx = context of command, arg = second word
     await echo_send(ctx, arg)  # reply to the original message echoing back the second word
 
-
-# TO-DO LIST
-# 1. CREATE COIN FUNCTION
+commandslist = {"echo":echo_command,"get":get_command,"leaderboard":leaderboard_command,"debug":debug,"help":helpcoin}
 
 @bot.command()
-async def create(ctx):
-    await create_send(ctx)
-
-
-# 2. GET COIN FUNCTION
-
-@bot.command()
-async def get(ctx):
-    await get_send(ctx)
-
-
-@bot.command()
-async def debug(ctx):
-    try:
-        debugtemp = context[1].name
-    except:
-        debugtemp = ""
-    debugcontext = context
-    debugcontext[1] = debugtemp
-
-    await ctx.send(str(context))
-
-@bot.command()
-async def leaderboard(ctx):
-    await leaderboard_send(ctx)
-
+async def coin(ctx,*args):
+    if args[0] in commandslist:
+        if args[0].lower() == "echo":
+            await commandslist[args[0]](ctx,args[1])
+        else:
+            await commandslist[args[0]](ctx)
+    else:
+        print("Invalid command by "+ctx.author.display_name+" - "+args[0])
 
 bot.run(TOKEN)
