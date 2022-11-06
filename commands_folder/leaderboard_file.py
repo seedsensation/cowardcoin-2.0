@@ -1,10 +1,7 @@
 from global_context import *
 
 async def leaderboard_command(ctx):
-    file = open("files\\text files\\\coins.txt", "r")
-    coins_string = file.read()
-    file.close()
-    coins = eval(coins_string)
+    coins = context[2]
     coindict = {}
     for item in coins:
         coindict[item] = coins[item][0]
