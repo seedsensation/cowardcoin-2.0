@@ -8,8 +8,8 @@ context = [
     "",  # created coin message ctx
     {},  # total number of coins
     0,  # time until next coin
-    30,  # minimum number of seconds before next coin  (default: 30)
-    3600,  # maximum number of seconds before next coin (default: 3600)
+    10,  # minimum number of seconds before next coin  (default: 30)
+    60,  # maximum number of seconds before next coin (default: 3600)
     True,  # does a coin need to be created?
     30, # time until coin expires
 ]
