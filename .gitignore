@@ -2,3 +2,5 @@
 /logs/
 /files/text files/
 /backups/
+/__pycache__/
+/commands_folder/__pycache__/
