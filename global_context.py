@@ -21,6 +21,7 @@ insults = [
     "i know the old one did, but i'm not going to give you a coin out of pity if you keep asking.",
     "zzzzzzzzzzZZZZZZZZZZZZZZZZzzzzzzzzzzzzzzzzz",
     "don't you have anything better to do?",
+    "literally my only job is to give you coins when theres one available. there isn't one. i'm going back to sleep"
 
 ]
 
