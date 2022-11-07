@@ -27,13 +27,15 @@ async def stylecalc(args):
 
         elif amount == 1:
             output = "You flip a coin.\nYou drop it! It falls down the gutter... lost forever...\n"
+            context[2][ctx.author.id][0] -= 1
         elif style <= 25:
             amountlost = math.ceil(amount/3)
             if amountlost == 1:
-                plural = "s"
-            else:
                 plural = ""
+            else:
+                plural = "s"
             output = "You juggle "+str(amount)+" coins!\nBut... oh no! You get distracted, and send "+str(amountlost)+" coin"+plural+" flying!\n"
+            context[2][ctx.author.id][0] -= amountlost
         elif style > 25 and style < 90:
             output = "You juggle " + str(amount) + " coins! It's cool as hell, and everyone is applauding.\n"
         else:
