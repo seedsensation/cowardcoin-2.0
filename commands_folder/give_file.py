@@ -1,5 +1,6 @@
 from global_context import *
 from random import randint
+from commands_folder.style_file import *
 async def give_command(ctx,args):
     print(args)
     if len(args)==3:
@@ -19,8 +20,7 @@ async def give_command(ctx,args):
                     context[2][ctx.author.id][0] -= amount
                     recipientobject = bot.get_user(recipient)
                     if recipient == ctx.author.id:
-                        style = randint(1,100)
-                        await ctx.send("You juggle "+str(amount)+" coin"+plural+". Everyone thinks it's awesome.\nYou gained "+str(style)+" Style Points.")
+                        await stylecalc([ctx,recipientobject,amount])
                     else:
                         await ctx.send("Sent "+str(amount)+" coin"+plural+" to "+recipientobject.display_name+". You now have "+str(context[2][ctx.author.id][0])+" coins.")
                 print(context[2][recipient][0])
