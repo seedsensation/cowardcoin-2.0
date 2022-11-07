@@ -5,4 +5,4 @@ async def count_coin(ctx):
         output = ("<a:gold:1038495846074941440> You have "+str(context[2][ctx.author.id][0])+" coins in your account.")
         if context[2][ctx.author.id][1] > 0:
             output += "\nYou also have "+str(context[2][ctx.author.id][1])+" Style Points™!"
-        ctx.send(output)
+        await ctx.send(output)
