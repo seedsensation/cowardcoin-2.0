@@ -6,6 +6,7 @@ from commands_folder.get_file import *
 from commands_folder.leaderboard_file import *
 from commands_folder.help_file import *
 from commands_folder.count_file import *
+from commands_folder.restart_file import *
 
 from time import *
 from commands import *
@@ -49,7 +50,7 @@ async def debug(ctx):
 
     await ctx.send(str(context))
 
-commandslist = {"echo":echo_command,"get":get_command,"leaderboard":leaderboard_command,"debug":debug,"help":help_coin,"count":count_coin}
+commandslist = {"echo":echo_command,"get":get_command,"leaderboard":leaderboard_command,"debug":debug,"help":help_coin,"count":count_coin,"restart":restart_command}
 
 @bot.command()
 async def coin(ctx,*args):
