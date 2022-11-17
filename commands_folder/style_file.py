@@ -12,23 +12,7 @@ async def stylecalc(args):
     timediff = currenttime-context[2][ctx.author.id][2]
     print(timediff)
     if timediff < 21600:
-        if timediff > 60:
-            minutes = round(timediff/60,1)
-            if minutes > 60:
-                hours = round(minutes/60,1)
-        
-        output = ""
-        if hours >= 1:
-            minutes-=(hours*60)
-            output+=str(hours)+" hours, "
-        if minutes >= 1:
-            seconds-=(minutes*60)
-            output+=str(minutes)+" minutes, "
-        if output != "":
-            output+=" and "
-        output+=seconds+" seconds"
-        
-        await ctx.send("You're too tired after your last trick! Give it "+output+". <:garaksus:963935108287582208> ")
+        await ctx.send("You're too tired after your last trick! Give it another try in 6 hours or so <:garaksus:963935108287582208> ")
     else:
         style = random.randint(1,100)
         print(str(style))

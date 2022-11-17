@@ -9,7 +9,7 @@ commandsdefinition = {
     This will award you a random amount of Style Points™ - ranging between 1 and 100.
     If you gain 90 or more Style Points™ in a single trick, the amount of coins you put into it will be doubled!
     However, if you gain 25 or less Style Points™ in a single trick, you will lose 1/3 of the coins you put in (rounded up).
-    Also, you can only pull off one Coin Trick every 24 hours.
+    Also, you can only pull off one Coin Trick every 6 hours.
     If you want to see how many Style Points™ you have, you can simply do `!coin count`! This will display your Style Points™ along with your coins if you have any.
     If you want to compete, you can use `!coin leaderboard style` - this will display an alternate leaderboard for Style Points™ instead of coins."""
 }
