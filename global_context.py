@@ -4,14 +4,15 @@ from discord.ext import commands
 from dotenv import load_dotenv
 
 context = [
-    "false",  # coin currently active
-    "",  # created coin message ctx
-    {},  # total number of coins
-    0,  # time until next coin
-    30,  # minimum number of seconds before next coin  (default: 30)
-    3600,  # maximum number of seconds before next coin (default: 3600)
-    True,  # does a coin need to be created?
-    60, # time until coin expires
+    "false",    # 0 - coin currently active
+    "",         # 1 - created coin message ctx
+    {},         # 2 - total number of coins
+    0,          # 3 - time until next coin
+    30,         # 4 - minimum number of seconds before next coin  (default: 30)
+    3600,       # 5 - maximum number of seconds before next coin (default: 3600)
+    True,       # 6 - does a coin need to be created?
+    60,         # 7 - time until coin expires
+    21600,      # 8 - minimum time between tricks
 ]
 
 insults = [
