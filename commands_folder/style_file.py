@@ -16,15 +16,22 @@ async def stylecalc(args):
         output = ""
         hours = math.floor(timeleft/3600)
         if hours > 0:
+            plural = ""
             timeleft-=(hours*3600)
-            output+=str(hours)+" hours, "
+            if hours > 1:
+                plural = "s"
+            output+=str(hours)+" hour"+plural+", "
         minutes = math.floor(timeleft/60)
         if minutes > 0:
             timeleft-=(minutes*60)
-            output+=str(minutes)+" minutes, "
+            if minutes < 2:
+                plural = ""
+            output+=str(minutes)+" minute"+plural+", "
         if hours > 0 or minutes > 0:
             output += "and "
-        output += str(timeleft)+" seconds"
+        if timeleft > 1:
+            plural = "s"
+        output += str(timeleft)+" second"+plural
         await ctx.send("You're too tired after your last trick! Give it another try in "+output+" <:garaksus:963935108287582208> ")
     else:
         style = random.randint(1,100)
