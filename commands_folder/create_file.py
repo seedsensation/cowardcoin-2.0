@@ -21,8 +21,12 @@ async def create_coin(ctx):
     if context[0]:
         await context[1].delete()
         print("Image file deleted, new coin ready")
-        await ctx.send("The coin escaped...")
+        escapemsg = await ctx.send("The coin escaped...")
         context[6] = True
         context[0] = False
+        await asyncio.sleep(context[7])
+        await escapemsg.delete()
+        print("'Coin Escaped' message expired.")
+
     else:
         print("New coin ready")

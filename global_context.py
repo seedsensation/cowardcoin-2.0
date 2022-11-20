@@ -11,7 +11,7 @@ context = [
     30,  # minimum number of seconds before next coin  (default: 30)
     3600,  # maximum number of seconds before next coin (default: 3600)
     True,  # does a coin need to be created?
-    30, # time until coin expires
+    60, # time until coin expires
 ]
 
 insults = [
