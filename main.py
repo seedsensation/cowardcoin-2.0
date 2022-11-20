@@ -30,7 +30,12 @@ async def on_ready():
     print('------')
     await file_check()
     await bot.change_presence(activity=discord.Game(name="the economy 😎"))
+    print(CHANNEL)
+    coinchannel = bot.get_channel(int(CHANNEL))
+    await coinchannel.send("Restarted successfully!")
+    print("Restarted successfully")
     await create_coin()
+
 
     loop = asyncio.get_event_loop()
     task = loop.create_task(check())
