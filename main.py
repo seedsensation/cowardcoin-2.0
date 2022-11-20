@@ -63,7 +63,7 @@ async def coin(ctx,*args):
             await commandslist[args[0]](ctx)
     elif args[0].lower() == "update" or args[0].lower() == "restart":
         await ctx.send("Applying updates...")
-        asyncio.sleep(0.5)
+        await asyncio.sleep(1)
         await ctx.send("Restarting...")
         exit()
     else:
