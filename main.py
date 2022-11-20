@@ -38,7 +38,6 @@ async def on_ready():
 
 @bot.command()
 async def echo(ctx, arg):  # ctx = context of command, arg = second word
-    await ctx.send("HI! if you're seeing this message it means the update is successful")
     await echo_send(ctx, arg)  # reply to the original message echoing back the second word
 
 async def debug(ctx):
