@@ -5,7 +5,10 @@ async def give_command(ctx,args):
     print(args)
     if len(args)==3:
         try:
-            recipient = int(args[1][2:-1])
+            if args[1][2] == "!":
+                recipient = int(args[1][3:-1])
+            else:
+                recipient = int(args[1][2:-1])
             amount = args[2]
             if amount.isdigit():
                 amount = int(amount)
