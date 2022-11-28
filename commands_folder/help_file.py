@@ -25,9 +25,15 @@ This coin will disappear after """+str(context[7])+""" seconds, so be quick!
     
 Here is a list of every command available to use by the bot.
 Type `!coin help [command]` to get a rundown on how to use that command.\n""")
-
+        for user in context[2].keys():
+            if context[2][user][1] > 0:
+                styleshow = True
+                break
+            else:
+                styleshow = False
         for command in commandsdefinition:
-            result += "`!coin "+str(command)+"`\n"
+            if (command == "style" and styleshow) or (command != "style"):
+                result += "`!coin "+str(command)+"`\n"
         await ctx.send(result)
     elif arg[1] in commandsdefinition:
         await ctx.send(commandsdefinition[arg[1]])
