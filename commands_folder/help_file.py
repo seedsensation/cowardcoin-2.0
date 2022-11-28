@@ -2,7 +2,7 @@ from global_context import *
 
 commandsdefinition = {
     "get":"<a:gold:1038495846074941440> **GET**\nThis command collects any available coins.\nIf there are no coins available, the bot might be a little annoyed at being asked.",
-    "leaderboard":"<a:gold:1038495846074941440> **LEADERBOARD**\nThis command shows you the users with the top 5 highest number of coins. Compare yourselves and fight with your friends :)",
+    "leaderboard":"<a:gold:1038495846074941440> **LEADERBOARD**\nThis command shows you the users with the top 5 highest number of coins. Compare yourselves and fight with your friends :)\nUse `!coin leaderboard full` to see the full leaderboard, and `!coin leaderboard bottom`/`!coin leaderboard reverse` to see the bottom 5.",
     "help":"I don't think you really need help with that one...",
     "style":"""<a:gold:1038495846074941440> **Style Points™**
     Style points are given out when you do cool Coin Tricks! You complete a coin trick by using the `!coin give` command to give yourself any amount of coins.
