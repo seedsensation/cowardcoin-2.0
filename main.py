@@ -55,7 +55,7 @@ async def debug(ctx):
 
     await ctx.send(str(context))
 
-commandslist = {"echo":echo_command,"get":get_command,"leaderboard":leaderboard_command,"debug":debug,"help":help_coin,"count":count_coin,"give":give_command}
+commandslist = {"echo":echo_command,"get":get_command,"leaderboard":leaderboard_command,"debug":debug,"help":help_coin,"count":count_coin,"give":give_command,"coin":view_coin}
 
 @bot.command()
 async def coin(ctx,*args):
