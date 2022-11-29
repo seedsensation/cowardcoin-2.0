@@ -33,8 +33,8 @@ Type `!coin help [command]` to get a rundown on how to use that command.\n""")
             else:
                 commandsdefinition["style"][0] == 0
         for command in commandsdefinition:
-            if command[0]:
-                result += "`!coin "+str(command[1])+"`\n"
+            if commandsdefinition[commands][0]:
+                result += "`!coin "+str(commandsdefinition[commands][1])+"`\n"
         await ctx.send(result)
     elif arg[1] in commandsdefinition:
         await ctx.send(commandsdefinition[arg[1]][1])
