@@ -26,8 +26,8 @@ This coin will disappear after """+str(context[7])+""" seconds, so be quick!
     
 Here is a list of every command available to use by the bot.
 Type `!coin help [command]` to get a rundown on how to use that command.\n""")
-        for user in context[2].keys():
-            if context[2][user][1] > 0:
+        for user in ctx.guild.members:
+            if context[2][str(user.id)][1] > 0:
                 commandsdefinition["style"][0] == 1
                 break
             else:
