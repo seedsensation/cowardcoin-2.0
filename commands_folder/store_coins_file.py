@@ -3,10 +3,10 @@ from time import strftime
 from pathlib import *
 
 async def filecheck():
-    file = open(Path("files/text files/coins.txt"), "r")
-    coins_string = file.read()
-    file.close()
     try:
+        file = open(Path("files/text files/coins.txt"), "r")
+        coins_string = file.read()
+        file.close()
         coins = eval(coins_string)
     except (FileNotFoundError, TypeError, SyntaxError):
         coins = {}

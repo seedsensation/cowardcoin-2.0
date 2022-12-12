@@ -34,7 +34,7 @@ async def stylecalc(args):
         if timeleft != 1:
             plural = "s"
         output += str(timeleft)+" second"+plural
-        await ctx.send("You're too tired after your last trick! Give it another try in "+output+" <:garaksus:963935108287582208> ")
+        await ctx.send("You're too tired after your last trick! Give it another try in "+output+" 😎")
     else:
         style = random.randint(1,100)
         print(str(style))
