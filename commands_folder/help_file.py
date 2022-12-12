@@ -4,6 +4,7 @@ commandsdefinition = {
 	"get":[1,"<a:gold:1038495846074941440> **GET**\nThis command collects any available coins.\nIf there are no coins available, the bot might be a little annoyed at being asked."],
 	"leaderboard":[1,"<a:gold:1038495846074941440> **LEADERBOARD**\nThis command shows you the users with the top 5 highest number of coins. Compare yourselves and fight with your friends :)\nUse `!coin leaderboard full` to see the full leaderboard, and `!coin leaderboard bottom`/`!coin leaderboard reverse` to see the bottom 5."],
 	"help":[0,"I don't think you really need help with that one..."],
+    "give":[1, "Give coins to your friends! For example, type `!coin give @user 10` to give @user 10 coins. Make sure the user is specifically pinged in the message though, or else it won't work!"],
 	"style":[0,"""<a:gold:1038495846074941440> **Style Points™**
     Style points are given out when you do cool Coin Tricks! You complete a coin trick by using the `!coin give` command to give yourself any amount of coins.
     This will award you a random amount of Style Points™ - ranging between 1 and 100.
