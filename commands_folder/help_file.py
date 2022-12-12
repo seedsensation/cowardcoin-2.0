@@ -1,17 +1,18 @@
 from global_context import *
 
 commandsdefinition = {
-    "get":"<a:gold:1038495846074941440> **GET**\nThis command collects any available coins.\nIf there are no coins available, the bot might be a little annoyed at being asked.",
-    "leaderboard":"<a:gold:1038495846074941440> **LEADERBOARD**\nThis command shows you the users with the top 5 highest number of coins. Compare yourselves and fight with your friends :)\nUse `!coin leaderboard full` to see the full leaderboard, and `!coin leaderboard bottom`/`!coin leaderboard reverse` to see the bottom 5.",
-    "help":"I don't think you really need help with that one...",
-    "style":"""<a:gold:1038495846074941440> **Style Points™**
+	"get":[1,"<a:gold:1038495846074941440> **GET**\nThis command collects any available coins.\nIf there are no coins available, the bot might be a little annoyed at being asked."],
+	"leaderboard":[1,"<a:gold:1038495846074941440> **LEADERBOARD**\nThis command shows you the users with the top 5 highest number of coins. Compare yourselves and fight with your friends :)\nUse `!coin leaderboard full` to see the full leaderboard, and `!coin leaderboard bottom`/`!coin leaderboard reverse` to see the bottom 5."],
+	"help":[0,"I don't think you really need help with that one..."],
+	"style":[0,"""<a:gold:1038495846074941440> **Style Points™**
     Style points are given out when you do cool Coin Tricks! You complete a coin trick by using the `!coin give` command to give yourself any amount of coins.
     This will award you a random amount of Style Points™ - ranging between 1 and 100.
     If you gain 90 or more Style Points™ in a single trick, the amount of coins you put into it will be doubled!
     However, if you gain 25 or less Style Points™ in a single trick, you will lose 1/3 of the coins you put in (rounded up).
     Also, you can only pull off one Coin Trick every 6 hours.
     If you want to see how many Style Points™ you have, you can simply do `!coin count`! This will display your Style Points™ along with your coins if you have any.
-    If you want to compete, you can use `!coin leaderboard style` - this will display an alternate leaderboard for Style Points™ instead of coins."""
+    If you want to compete, you can use `!coin leaderboard style` - this will display an alternate leaderboard for Style Points™ instead of coins."""],
+
 }
 
 async def help_coin(ctx,arg):
@@ -27,15 +28,15 @@ Here is a list of every command available to use by the bot.
 Type `!coin help [command]` to get a rundown on how to use that command.\n""")
         for user in context[2].keys():
             if context[2][user][1] > 0:
-                styleshow = True
+                commandsdefinition["style"][0] == 1
                 break
             else:
-                styleshow = False
+                commandsdefinition["style"][0] == 0
         for command in commandsdefinition:
-            if (command == "style" and styleshow) or (command != "style"):
+            if commandsdefinition[command][0]:
                 result += "`!coin "+str(command)+"`\n"
         await ctx.send(result)
     elif arg[1] in commandsdefinition:
-        await ctx.send(commandsdefinition[arg[1]])
+        await ctx.send(commandsdefinition[arg[1]][1])
     else:
         await ctx.send("I don't recognise that command, sorry...")

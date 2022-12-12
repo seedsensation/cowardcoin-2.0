@@ -30,3 +30,9 @@ async def create_coin(ctx):
 
     else:
         print("New coin ready")
+       
+async def view_coin(ctx):
+    with open(Path("files/images/gold.gif"),"rb") as f:
+        picture = discord.File(f)
+    await ctx.send("A coin, for your viewing pleasure.",file=picture)
+    await ctx.delete()
