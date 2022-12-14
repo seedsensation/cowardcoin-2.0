@@ -11,7 +11,6 @@ async def stylecalc(args):
     currenttime = time.time()
     timediff = currenttime-context[2][ctx.author.id][2]
     print(timediff)
-    '''
     if timediff < context[8]:
         timeleft = round(context[8]-timediff)
         output = ""
@@ -36,8 +35,7 @@ async def stylecalc(args):
             plural = "s"
         output += str(timeleft)+" second"+plural
         await ctx.send("You're too tired after your last trick! Give it another try in "+output+" 😎")
-    else:'''
-    if True:
+    else:
         style = random.randint(1,100)
         print(str(style))
         if amount == 1 and style > 25:
@@ -53,7 +51,6 @@ async def stylecalc(args):
             tricks = ["You juggle x coins while grinding on a rail!","You balance x coins on your head while doing a kickflip!","You jump in the air, throw your skateboard at a wall, bounce it off the wall and land back on it, with x coins in your mouth!"]
             tricks = [t.replace('x', str(amount)) for t in tricks]
             output = random.choice(tricks)
-            ctx.send(str(tricks))
             if style <= 25:
                 amountlost = math.ceil(amount/3)
                 if amountlost == 1:
