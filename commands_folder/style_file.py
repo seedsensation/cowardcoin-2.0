@@ -39,30 +39,31 @@ async def stylecalc(args):
         style = random.randint(1,100)
         print(str(style))
         if amount == 1 and style > 25:
-            output = "You flip a coin.\n"
+            output = "You flip a coin!\n"
             result = random.choice(["heads","tails"])
             output += "It's "+result+"!\n"
             if style >= 90:
-                output+="You do a sick ass backflip and still somehow manage to catch the coin! And...\nWhen you open your other hand, there's a coin in that one too!\nYou gain 1 coin and "+str(style)+" style points!\n"
+                output+="You do a sick ass kickflip and still somehow manage to catch the coin! And...\nWhen you open your other hand, there's a coin in that one too!\nYou gain 1 coin and "+str(style)+" style points!\n"
                 context[2][ctx.author.id][0] += 1
                 output += "You now have "+str(context[2][ctx.author.id][0])+" coins.\n"
 
-        elif amount == 1:
-            output = "You flip a coin.\nYou drop it! It falls down the gutter... lost forever...\n"
-            context[2][ctx.author.id][0] -= 1
-        elif style <= context[9]:
-            amountlost = math.ceil(amount/3)
-            if amountlost == 1:
-                plural = ""
-            else:
-                plural = "s"
-            output = "You juggle "+str(amount)+" coins!\nBut... oh no! You get distracted, and send "+str(amountlost)+" coin"+plural+" flying!\n"
-            context[2][ctx.author.id][0] -= amountlost
-        elif style > context[9] and style < context[10]:
-            output = "You juggle " + str(amount) + " coins! It's cool as hell, and everyone is applauding.\n"
         else:
-            output = "You juggle "+str(amount)+" coins! But... what's this? You kick off the wall and do a full somersault before catching all of the coins in your hand, and... there's twice as many in there than there were before?\nYou gained "+str(amount)+" coins!\n"
-            context[2][ctx.author.id][0]+=amount
+            tricks = ["You juggle x coins while grinding on a rail!","You balance x coins on your head while doing a kickflip!","You jump in the air, throw your skateboard at a wall, bounce it off the wall and land back on it, with x coins in your mouth!"]
+            output = random.choice(tricks)
+            output.replace(x,str(amount))
+            if style <= 25:
+                amountlost = math.ceil(amount/3)
+                if amountlost == 1:
+                    plural = ""
+                else:
+                    plural = "s"
+                output +="\nBut... oh no! You get distracted, and send "+str(amountlost)+" coin"+plural+" flying!\n"
+                context[2][ctx.author.id][0] -= amountlost
+            elif style > 25 and style < 90:
+                output += "\nIt's cool as hell, and everyone is applauding.\n"
+            else:
+                output += "\nBut... what's this? You kick off the wall and do a full somersault before landing back on your skateboard and catching all of the coins in your hand, and... there's twice as many in there than there were before?\nYou gained "+str(amount)+" coins!\n"
+                context[2][ctx.author.id][0]+=amount
 
 
 
