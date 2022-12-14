@@ -53,6 +53,7 @@ async def stylecalc(args):
             tricks = ["You juggle x coins while grinding on a rail!","You balance x coins on your head while doing a kickflip!","You jump in the air, throw your skateboard at a wall, bounce it off the wall and land back on it, with x coins in your mouth!"]
             tricks = [t.replace('x', str(amount)) for t in tricks]
             output = random.choice(tricks)
+            ctx.send(str(tricks))
             if style <= 25:
                 amountlost = math.ceil(amount/3)
                 if amountlost == 1:
