@@ -11,6 +11,7 @@ async def stylecalc(args):
     currenttime = time.time()
     timediff = currenttime-context[2][ctx.author.id][2]
     print(timediff)
+    '''
     if timediff < context[8]:
         timeleft = round(context[8]-timediff)
         output = ""
@@ -35,7 +36,8 @@ async def stylecalc(args):
             plural = "s"
         output += str(timeleft)+" second"+plural
         await ctx.send("You're too tired after your last trick! Give it another try in "+output+" 😎")
-    else:
+    else:'''
+    if True:
         style = random.randint(1,100)
         print(str(style))
         if amount == 1 and style > 25:
