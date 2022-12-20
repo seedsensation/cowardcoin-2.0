@@ -67,10 +67,13 @@ async def coin(ctx,*args):
         else:
             await commandslist[args[0]](ctx)
     elif args[0].lower() == "update" or args[0].lower() == "restart":
-        await ctx.send("Applying updates...")
-        await asyncio.sleep(1)
-        await ctx.send("Restarting...")
-        exit()
+        if ctx.author.id == 431047023689596928:
+            await ctx.send("Applying updates...")
+            await asyncio.sleep(1)
+            await ctx.send("Restarting...")
+            exit()
+        else:
+            await ctx.send("Invalid permissions... sorry...")
     else:
         print("Invalid command by "+ctx.author.display_name+" - "+args[0])
 
