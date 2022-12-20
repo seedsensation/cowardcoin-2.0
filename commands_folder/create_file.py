@@ -17,23 +17,20 @@ async def create_coin(ctx):
     context[1] = await ctx.send("A new coin has appeared!\nType `!coin get` to claim it!",file=picture)
     print("Created Coin")
     context[0] = True
-    await asyncio.sleep(5)
+    await asyncio.sleep(context[7])
     if context[0]:
+        await context[1].delete()
+        print("Image file deleted, new coin ready")
+        escapemsg = await ctx.send("The coin escaped...")
+        context[6] = True
+        context[0] = False
         await asyncio.sleep(context[7])
-        if context[0]:
-            await context[1].delete()
-            print("Image file deleted, new coin ready")
-            escapemsg = await ctx.send("The coin escaped...")
-            context[6] = True
-            context[0] = False
-            await asyncio.sleep(context[7])
-            await escapemsg.delete()
-            print("'Coin Escaped' message expired.")
+        await escapemsg.delete()
+        print("'Coin Escaped' message expired.")
 
-        else:
-            print("New coin ready")
     else:
         print("New coin ready")
+
        
 async def view_coin(ctx):
     with open(Path("files/images/gold.gif"),"rb") as f:

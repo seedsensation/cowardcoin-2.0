@@ -8,17 +8,20 @@ async def get_command(ctx):
         context[0] = False
         await context[1].delete()
         context[2][ctx.author.id][0] += 1
-        output = ("<a:gold:1038495846074941440> You got a coin, " + ctx.author.display_name + "!\n<a:gold:1038495846074941440> You now have "+str(context[2][ctx.author.id][0])+" coins.")
+        output = ("<a:gold:1038495846074941440> You got a coin, " + ctx.author.display_name + "!")
         if context[11][0] == ctx.author.id:
             context[11][1] += 1
             if context[11][1] > 1:
-                output += f'You currently have a streak of {context[11][1]} coins in a row! 🔥 🔥 🔥'
+                output += f'\n<a:gold:1038495846074941440> You currently have a streak of {context[11][1]} coins in a row! 🔥 🔥 🔥'
                 if context[11][1] % 5 == 0:
                     context[2][ctx.author.id][0] += context[11][1]
-                    output += f'\nYou gained {context[11][1]} coins!\nYou now have {context[2][ctx.author.id][0]} coins!'
+                    output += f'\n<a:gold:1038495846074941440> You gained {context[11][1]} bonus coins from your streak!'
+
         else:
             context[11][0] = ctx.author.id
             context[11][1] = 1
+
+        output += "\n<a:gold:1038495846074941440> You now have " + str(context[2][ctx.author.id][0]) + " coins."
 
         await ctx.send(output)
 
