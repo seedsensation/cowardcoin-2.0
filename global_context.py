@@ -9,7 +9,7 @@ context = [
     {},         # 2 - total number of coins
     0,          # 3 - time until next coin
     30,         # 4 - minimum number of seconds before next coin  (default: 30)
-    600,       # 5 - maximum number of seconds before next coin (default: 1800)
+    1800,       # 5 - maximum number of seconds before next coin (default: 1800)
     True,       # 6 - does a coin need to be created?
     120,        # 7 - time until coin expires (default: 120)
     21600,      # 8 - minimum time between tricks
