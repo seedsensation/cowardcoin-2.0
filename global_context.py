@@ -8,13 +8,14 @@ context = [
     "",         # 1 - created coin message ctx
     {},         # 2 - total number of coins
     0,          # 3 - time until next coin
-    30,         # 4 - minimum number of seconds before next coin  (default: 30)
-    1800,       # 5 - maximum number of seconds before next coin (default: 3600)
+    5,         # 4 - minimum number of seconds before next coin  (default: 30)
+    30,       # 5 - maximum number of seconds before next coin (default: 1800)
     True,       # 6 - does a coin need to be created?
     120,        # 7 - time until coin expires
     21600,      # 8 - minimum time between tricks
     25,         # 9 - upper bound for losing coins
     90,         # 10 - lower bound for doubling coins
+    [0, 0],     # 11 - streak counter - [0] = user ID, [1] = streak count
 ]
 
 insults = [
