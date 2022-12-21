@@ -57,9 +57,9 @@ async def coin(ctx,*args):
     if args[0] in commandslist.keys():
         print(args[0])
         if commandslist[args[0]] == 1:
-            await commandslist[args[0]](ctx,args)
+            await commandslist[args[0]][1](ctx,args)
         else:
-            await commandslist[args[0]](ctx)
+            await commandslist[args[0]][1](ctx)
     elif args[0].lower() == "update" or args[0].lower() == "restart":
         if ctx.author.id == 431047023689596928:
             await ctx.send("Applying updates...")
