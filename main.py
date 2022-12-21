@@ -46,13 +46,6 @@ async def echo(ctx, arg):  # ctx = context of command, arg = second word
     await echo_send(ctx, arg)  # reply to the original message echoing back the second word
 
 async def debug(ctx):
-    try:
-        debugtemp = context[1].name
-    except:
-        debugtemp = ""
-    debugcontext = context
-    debugcontext[1] = debugtemp
-
     await ctx.send(str(context))
 
 commandslist = {"echo":echo_command,"get":get_command,"leaderboard":leaderboard_command,"debug":debug,"help":help_coin,"count":count_coin,"give":give_command,"coin":view_coin}
