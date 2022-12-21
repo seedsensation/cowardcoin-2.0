@@ -48,14 +48,15 @@ async def echo(ctx, arg):  # ctx = context of command, arg = second word
 async def debug(ctx):
     await ctx.send(str(context))
 
-commandslist = {"echo":echo_command,"get":get_command,"leaderboard":leaderboard_command,"debug":debug,"help":help_coin,"count":count_coin,"give":give_command,"coin":view_coin}
+commandslist = {"echo":[1,echo_command],"get":[0,get_command],"leaderboard":[1,leaderboard_command],"debug":[0,debug],"help":[1,help_coin],"count":[0,count_coin],"give":[1,give_command],"coin":[0,view_coin]}
+# 0 = needs no args
+# 1 = needs args
 
 @bot.command()
 async def coin(ctx,*args):
     if args[0] in commandslist:
         print(args[0])
-        if args[0].lower() == "echo" or (args[0].lower() == "help") or args[0].lower() == "give" or args[0].lower() == "leaderboard":
-            print("Hi")
+        if commandslist[args[0]]:
             await commandslist[args[0]](ctx,args)
         else:
             await commandslist[args[0]](ctx)
