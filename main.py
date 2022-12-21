@@ -56,7 +56,7 @@ commandslist = {"echo":[1,echo_command],"get":[0,get_command],"leaderboard":[1,l
 async def coin(ctx,*args):
     if args[0] in commandslist:
         print(args[0])
-        if commandslist[args[0]][0] == 1:
+        if commandslist[args[0]][0]:
             await commandslist[args[0]][1](ctx,args)
         else:
             await commandslist[args[0]][1](ctx)
