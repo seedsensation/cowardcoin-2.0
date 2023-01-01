@@ -13,7 +13,7 @@ commandsdefinition = {
     Also, you can only pull off one Coin Trick every 6 hours.
     If you want to see how many Style Points™ you have, you can simply do `!coin count`! This will display your Style Points™ along with your coins if you have any.
     If you want to compete, you can use `!coin leaderboard style` - this will display an alternate leaderboard for Style Points™ instead of coins."""],
-    "shop":[1,"Buy cool role icons for yourself, using the command `!coin shop [name]`!"],
+    "shop":[1,"Buy cool role icons for yourself, using the command `!coin shop [name]`!\nYou can exchange icons you already have for a discount/refund when buying new ones - for example, if you own <:waynerTrick:726571399921139772> and want to change to <:socpenBabie:757622293085159484>, it will be free.\nOn the other hand, if you own <:verificationbadge:1058890128338194442> and want to buy <:waynerBitcoin:726571398641877002>, it will cost you 50 coins, instead of the usual 100."],
 
 }
 
