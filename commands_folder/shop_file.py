@@ -17,6 +17,7 @@ store = \
         "verified": [50,"<:verificationbadge:1058890128338194442>",1054736944099246100],
         "bitcoin":  [100,"<:waynerBitcoin:726571398641877002>",1058908085365780550],
         "premium":  [500,"<:premium:1058929030717513799>",1058929091870462022],
+        "diamond":  [1000,"<:diamondclub:1058930102987149392>",1058930387105104042]
     }
 
 async def shop_command(ctx,args):
