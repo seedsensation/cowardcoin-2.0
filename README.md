@@ -10,7 +10,7 @@ This project is a little Discord bot that creates coins in a specified channel.
  4. ~~Store Coins~~
  5. Get coins through messages
  6. ~~Give coins to each other~~
- 7. Coin Shop
+ 7. ~~Coin Shop~~
  8. ~~Skateboard tricks??????~~
  9. Coin Streaks 
 
