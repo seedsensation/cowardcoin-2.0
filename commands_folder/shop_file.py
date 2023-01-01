@@ -23,7 +23,7 @@ async def shop_command(ctx,args):
     for item in store.keys():
         rolelist[store[item][2]] = item
     if len(args) == 1:
-        output = "<a:gold:1038495846074941440> COIN STORE <a:gold:1038495846074941440>\nTo buy any of these, type `!coin shop [icon name]`.\nWARNING: Buying a new role icon will delete your previous ones - however, a refund will be provided.\n\n"
+        output = "<a:gold:1038495846074941440> COIN STORE <a:gold:1038495846074941440>\nTo buy any of these, type `!coin shop`, followed by the name of the icon you want to buy - e.g. `!coin shop baaulp`.\nWARNING: Buying a new role icon will delete your previous ones - however, a refund will be provided.\n\n"
         for item in store.keys():
             output += f"{store[item][1]} {item.capitalize()} - {store[item][0]} Coins\n\n"
         await ctx.send(output)
