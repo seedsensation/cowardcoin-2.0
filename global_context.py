@@ -16,6 +16,7 @@ context = [
     25,         # 9 - upper bound for losing coins
     90,         # 10 - lower bound for doubling coins
     [0, 0],     # 11 - streak counter - [0] = user ID, [1] = streak count
+    0,          # 12 - rarity - 0 = undefined, 1 = bronze, 2 = silver, 3 = gold, 4 = red
 ]
 
 insults = [

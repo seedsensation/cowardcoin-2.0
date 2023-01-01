@@ -21,6 +21,7 @@ async def help_coin(ctx,arg):
     if len(arg)==1:
         result = ("""
 <a:gold:1038495846074941440> Welcome to CowardCoin! <a:gold:1038495846074941440>
+-=- COIN RARITY EDITION -=-
 At a random interval between """+str(context[4])+" seconds and "+str(int(context[5]/60))+""" minutes, a coin will be created.
 This is signalled by a message with an image of a giant coin.
 At this point, you can type `!coin get` to collect the coin!
