@@ -21,11 +21,11 @@ context = [
     [1,2,5,10], # 14 - coin variant values - bronze, silver, gold, red
 ]
 coinrarities = {
-    0   :   ["undefined","[error]"],
-    1   :   ["bronze","<a:bronzecoin:844545666201288755>"],
-    2   :   ["silver","<a:silvercoin:844545665911881788>"],
-    3   :   ["gold","<a:goldcoin:813889535699189871>"],
-    4   :   ["ULTRA RARE red","<a:redcoin:844545670709772290>"]
+    0   :   ["undefined","[error]","error"],
+    1   :   ["bronze","<a:bronzecoin:844545666201288755>","bronze"],
+    2   :   ["silver","<a:silvercoin:844545665911881788>","silver"],
+    3   :   ["gold","<a:goldcoin:813889535699189871>","gold"],
+    4   :   ["SUPER RARE red","<a:redcoin:844545670709772290>","ultrarare"]
 }
 
 insults = [
