@@ -16,8 +16,17 @@ context = [
     25,         # 9 - upper bound for losing coins
     90,         # 10 - lower bound for doubling coins
     [0, 0],     # 11 - streak counter - [0] = user ID, [1] = streak count
-    0,          # 12 - rarity - 0 = undefined, 1 = bronze, 2 = silver, 3 = gold, 4 = red
+    0,          # 12 - coin value - 0 = undefined, 1 = bronze, 2 = silver, 3 = gold, 4 = red
+    [50,75,99], # 13 - coin variant rarities - random number gen 1-100, below [0] = bronze, below [1] = silver, below [2] = gold, else red
+    [1,2,5,10], # 14 - coin variant values - bronze, silver, gold, red
 ]
+coinrarities = {
+    0   :   ["undefined","[error]"],
+    1   :   ["bronze","<a:bronzecoin:844545666201288755>"],
+    2   :   ["silver","<a:silvercoin:844545665911881788>"],
+    3   :   ["gold","<a:goldcoin:813889535699189871>"],
+    4   :   ["ULTRA RARE red","<a:redcoin:844545670709772290>"]
+}
 
 insults = [
     "there is no coin. please.",
