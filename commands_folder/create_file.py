@@ -13,8 +13,7 @@ async def create_command(ctx):
 
 async def create_coin(ctx):
     # generate coin variant
-    #variant = randint(0,100)
-    variant = 100
+    variant = randint(0,100)
     varlist = context[13]
     if variant <= varlist[0]:
         context[12] = 1
