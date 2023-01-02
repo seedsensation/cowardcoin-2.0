@@ -12,7 +12,20 @@ async def create_command(ctx):
     await create_coin(ctx)
 
 async def create_coin(ctx):
-    with open(Path("files/images/gold.gif"),"rb") as f:
+    # generate coin variant
+    #variant = randint(0,100)
+    variant = 100
+    varlist = context[13]
+    if variant <= varlist[0]:
+        context[12] = 1
+    elif variant <= varlist[1]:
+        context[12] = 2
+    elif variant <= varlist[2]:
+        context[12] = 3
+    else:
+        context[12] = 4
+
+    with open(Path(f"files/images/{coinrarities[context[12]][2]}.gif"),"rb") as f:
         picture = discord.File(f)
     context[1] = await ctx.send(f"A new {coinrarities[context[12]][0]} coin has appeared!\nType `!coin get` to claim it!",file=picture)
     print("Created Coin")
@@ -21,12 +34,13 @@ async def create_coin(ctx):
     if context[0]:
         await context[1].delete()
         print("Image file deleted, new coin ready")
-        escapemsg = await ctx.send("The coin escaped...")
+        escapemsg = await ctx.send(f"{coinrarities[context[12]][1]} The coin escaped...")
         context[6] = True
         context[0] = False
-        await asyncio.sleep(context[7])
-        await escapemsg.delete()
-        print("'Coin Escaped' message expired.")
+        if context[12] != 4:
+            await asyncio.sleep(context[7])
+            await escapemsg.delete()
+            print("'Coin Escaped' message expired.")
 
     else:
         print("New coin ready")
