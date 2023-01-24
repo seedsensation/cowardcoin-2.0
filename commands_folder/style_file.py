@@ -67,8 +67,8 @@ async def stylecalc(args):
 
 
 
-        context[2][ctx.author.id][1] += style
-        output += "You gain "+str(style)+" Style Points™!\nYou now have "+str(context[2][ctx.author.id][1])+" Style Points™."
+        context[2][ctx.author.id][1] += amount+style
+        output += "You gain "+str(amount+style)+" Style Points™!\nYou now have "+str(context[2][ctx.author.id][1])+" Style Points™."
         await ctx.send(output)
         await savecoins(ctx)
         context[2][ctx.author.id][2] = time.time()
