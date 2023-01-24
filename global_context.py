@@ -20,7 +20,7 @@ context = [
     [50,85,99], # 13 - coin variant rarities - random number gen 1-100, below [0] = bronze, below [1] = silver, below [2] = gold, else red
 ]
 
-# [0] = display name, [1] = emote, [2] = file name (-.gif), [3] = value
+# coin variants: [0] = display name, [1] = emote, [2] = file name (-.gif), [3] = value
 coinrarities = {
     0   :   ["undefined","[error]","error",0],
     1   :   ["bronze","<a:bronzecoin:844545666201288755>","bronze",1],

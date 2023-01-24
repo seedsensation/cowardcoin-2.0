@@ -1,6 +1,8 @@
 from global_context import *
 from random import randint
 from commands_folder.style_file import *
+from commands_folder.store_coins_file import *
+
 async def give_command(ctx,args):
     print(args)
     if len(args)==3:
@@ -34,3 +36,5 @@ async def give_command(ctx,args):
             await ctx.send("An error occurred reading your message. Please check the following:\n- Your message is formatted `!coin give @recipient [amount]`\n- That the recipient is specifically tagged in the message")
     else:
         await ctx.send("Not enough arguments were given. Please check the following:\n- Your message is formatted `!coin give @recipient [amount]`")
+
+    await savecoins(ctx)
