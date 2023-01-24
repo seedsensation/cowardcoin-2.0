@@ -22,8 +22,11 @@ async def tip_command(ctx,args):
 
                 context[2][recipient][1] += amount
                 recipientobject = bot.get_user(recipient)
-                await ctx.send("Tipped " + str(amount) + " StylePoint"+str(plural)+"™ to " + recipientobject.display_name + ". \n"+ recipientobject.display_name + " now has " + str(context[2][recipientobject.id][1]) + " StylePoints™.")
-                print(context[2][recipient][0])
+                if recipientobject.id = ctx.author.id:
+                    ctx.send("haha... ha... ha..... no.")
+                else:
+                    await ctx.send("Tipped " + str(amount) + " StylePoint"+str(plural)+"™ to " + recipientobject.display_name + ". \n"+ recipientobject.display_name + " now has " + str(context[2][recipientobject.id][1]) + " StylePoints™.")
+                    print(context[2][recipient][0])
             else:
                 await ctx.send("Invalid amount given. Please check the following:\n- Your message is formatted `!coin tip @recipient [amount]`\n- That you specifically gave a whole number for the amount.")
 
