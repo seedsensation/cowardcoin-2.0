@@ -22,7 +22,7 @@ async def tip_command(ctx,args):
 
                 context[2][recipient][1] += amount
                 recipientobject = bot.get_user(recipient)
-                if recipientobject.id = ctx.author.id:
+                if recipientobject.id == ctx.author.id:
                     ctx.send("haha... ha... ha..... no.")
                 else:
                     await ctx.send("Tipped " + str(amount) + " StylePoint"+str(plural)+"™ to " + recipientobject.display_name + ". \n"+ recipientobject.display_name + " now has " + str(context[2][recipientobject.id][1]) + " StylePoints™.")
