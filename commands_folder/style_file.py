@@ -64,11 +64,12 @@ async def stylecalc(args):
             else:
                 output += "\nBut... what's this? You kick off the wall and do a full somersault before landing back on your skateboard and catching all of the coins in your hand, and... there's twice as many in there than there were before?\nYou gained "+str(amount)+" coins!\n"
                 context[2][ctx.author.id][0]+=amount
+                style += amount
 
 
 
-        context[2][ctx.author.id][1] += amount+style
-        output += "You gain "+str(amount+style)+" Style Points™!\nYou now have "+str(context[2][ctx.author.id][1])+" Style Points™."
+        context[2][ctx.author.id][1] += style
+        output += "You gain "+str(style)+" Style Points™!\nYou now have "+str(context[2][ctx.author.id][1])+" Style Points™."
         await ctx.send(output)
         await savecoins(ctx)
         context[2][ctx.author.id][2] = time.time()
