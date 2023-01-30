@@ -75,3 +75,7 @@ async def stylecalc(args):
         context[2][ctx.author.id][2] = time.time()
 
 async def eat_command(ctx):
+    if context[2][ctx.author.id][0] >= 1:
+        await ctx.send("You have eaten a coin!")
+        context[2][ctx.author.id][0] -= 1
+        savecoins(ctx)

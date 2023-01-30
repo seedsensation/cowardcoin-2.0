@@ -12,12 +12,15 @@ async def filecheck():
         coins = {}
         for guild in bot.guilds:
             for member in guild.members:
-                coins[member.id] = [0, 0, 0]
+                coins[member.id] = [0, 0, 0, 0]
 
     for guild in bot.guilds:
         for member in guild.members:
             if member.id not in coins:
-                coins[member.id] = [0, 0, 0]
+                coins[member.id] = [0, 0, 0, 0]
+
+            while len(coins[member.id]) < 4:
+                coins[member.id].append(0)
     print(coins)
     file = open(Path("files/text files/coins.txt"), "w")
     file.write(str(coins))
