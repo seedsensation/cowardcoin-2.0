@@ -47,10 +47,27 @@ async def on_ready():
 async def echo(ctx, arg):  # ctx = context of command, arg = second word
     await echo_send(ctx, arg)  # reply to the original message echoing back the second word
 
-async def debug(ctx):
-    await ctx.send(str(context))
+async def debug(ctx,arg):
+    check_role = get(ctx.guild.roles, name="admins")
+    if check_role not in ctx.author.roles and context[14]:
+        await ctx.send("Admins only... sorry :(")
+    elif context[14]:
+        if len(arg) == 1:
+            await ctx.send(str(context))
+        else:
+            exec(arg[1])
 
-commandslist = {"echo":[1,echo_command],"get":[0,get_command],"leaderboard":[1,leaderboard_command],"debug":[0,debug],"help":[1,help_coin],"count":[0,count_coin],"give":[1,give_command],"coin":[0,view_coin],"shop":[1,shop_command],"tip":[1,tip_command],"eat":[0,eat_command]}
+    else:
+        await ctx.send("Currently not in maintenance mode")
+
+async def maintenancemode(ctx):
+    check_role = get(ctx.guild.roles, name="admins")
+    if check_role not in ctx.author.roles:
+        await ctx.send("Admins only... sorry :(")
+    else:
+        context[14] = 1-(context[14])
+
+commandslist = {"echo":[1,echo_command],"get":[0,get_command],"leaderboard":[1,leaderboard_command],"debug":[1,debug],"help":[1,help_coin],"count":[0,count_coin],"give":[1,give_command],"coin":[0,view_coin],"shop":[1,shop_command],"tip":[1,tip_command],"eat":[0,eat_command],"maintenance":[0,maintenancemode]}
 # 0 = needs no args
 # 1 = needs args
 

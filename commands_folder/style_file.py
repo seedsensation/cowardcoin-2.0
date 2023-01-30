@@ -37,6 +37,9 @@ async def stylecalc(args):
         await ctx.send("You're too tired after your last trick! Give it another try in "+output+" 😎")
     else:
         style = random.randint(1,100)
+        if context[2][ctx.author.id][3] >= 1:
+            style += context[2][ctx.author.id][3]
+            context[2][ctx.author.id][3] = 0
         print(str(style))
         if amount == 1 and style > 25:
             output = "You flip a coin!\n"
@@ -78,4 +81,5 @@ async def eat_command(ctx):
     if context[2][ctx.author.id][0] >= 1:
         await ctx.send("You have eaten a coin!")
         context[2][ctx.author.id][0] -= 1
+        context[2][ctx.author.id][3] += 1
         savecoins(ctx)
