@@ -73,3 +73,5 @@ async def stylecalc(args):
         await ctx.send(output)
         await savecoins(ctx)
         context[2][ctx.author.id][2] = time.time()
+
+async def eat_command(ctx):

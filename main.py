@@ -50,7 +50,7 @@ async def echo(ctx, arg):  # ctx = context of command, arg = second word
 async def debug(ctx):
     await ctx.send(str(context))
 
-commandslist = {"echo":[1,echo_command],"get":[0,get_command],"leaderboard":[1,leaderboard_command],"debug":[0,debug],"help":[1,help_coin],"count":[0,count_coin],"give":[1,give_command],"coin":[0,view_coin],"shop":[1,shop_command],"tip":[1,tip_command]}
+commandslist = {"echo":[1,echo_command],"get":[0,get_command],"leaderboard":[1,leaderboard_command],"debug":[0,debug],"help":[1,help_coin],"count":[0,count_coin],"give":[1,give_command],"coin":[0,view_coin],"shop":[1,shop_command],"tip":[1,tip_command],"eat":[0,eat_command]}
 # 0 = needs no args
 # 1 = needs args
 
