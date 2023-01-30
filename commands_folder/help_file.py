@@ -15,7 +15,8 @@ commandsdefinition = {
     If you want to compete, you can use `!coin leaderboard style` - this will display an alternate leaderboard for Style Points™ instead of coins."""],
     "shop":[1,"Buy cool role icons for yourself, using the command `!coin shop [name]`!\nYou can exchange icons you already have for a discount/refund when buying new ones - for example, if you own <:waynerTrick:726571399921139772> and want to change to <:socpenBabie:757622293085159484>, it will be free.\nOn the other hand, if you own <:verificationbadge:1058890128338194442> and want to buy <:waynerBitcoin:726571398641877002>, it will cost you 50 coins, instead of the usual 100."],
     "variants":[1,f"Coins come in 4 rarities - bronze, silver, gold, and RED. \nThe higher the rarity, the more coins you get from it - however, they become increasingly rare. \nBy default, a coin has a 50% chance of being bronze, compared to 1% for Red coins."],
-    "eat":[1,"yummy"],
+    "eat":[1,"Type `!coin eat` to eat coins!\nThe more coins you eat, the more likely it is to double your coins by doing Skateboard Tricks™!\nHowever, **the counter resets with every trick you do** - so be careful."],
+    "ascension":[1,"When you eat your 50th coin, you will Ascend. This has two effects -\n1. Increases how many coins it takes to Ascend by 5\n2. Adds a permanent +5 to the cap on StylePoints™ from doing Skateboard Tricks™, making it much more likely to double your coins."],
 }
 
 async def help_coin(ctx,arg):

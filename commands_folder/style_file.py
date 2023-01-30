@@ -36,7 +36,13 @@ async def stylecalc(args):
         output += str(timeleft)+" second"+plural
         await ctx.send("You're too tired after your last trick! Give it another try in "+output+" 😎")
     else:
-        style = random.randint(1,100)
+        max = 100
+        if context[2][ctx.author.id][3] >= 1:
+            max += context[2][ctx.author.id][3]
+            context[2][ctx.author.id][3] = 0
+        max += (context[2][ctx.author.id][4]*5)
+
+        style = random.randint(1,max)
         if context[2][ctx.author.id][3] >= 1:
             style += context[2][ctx.author.id][3]
             context[2][ctx.author.id][3] = 0
@@ -89,16 +95,13 @@ async def eat_command(ctx):
             output += ("\nYou feel extremely full...")
         elif context[2][ctx.author.id][3] == 45:
             output += ("\nYou can't eat any more coins or you feel like you'll explode...")
-        elif context[2][ctx.author.id][3] == (50+(context[2][ctx.author.id][4]*5)) and context[2][ctx.author.id][4] <= 40:
+        elif context[2][ctx.author.id][3] == (50+(context[2][ctx.author.id][4]*5)):
             context[2][ctx.author.id][3] = 0
             context[2][ctx.author.id][4] += 1
-            output += ("\nYou Ascend. You have reached peak Coin Eating. All coins in your stomach disappear. It is time for your task to begin again.\nYou have reached Ascension Level "+str(context[2][ctx.author.id][4])+".")
-        elif context[2][ctx.author.id][3] == (50+(context[2][ctx.author.id][4]*5)) and context[2][ctx.author.id][4] > 40:
-            context[2][ctx.author.id][3] = 0
-            output += ("\nYou Ascend - but now that you have reached your peak, your ascension is meaningless.")
+            output += ("\nYou Ascend. You have reached peak Coin Eating. All coins in your stomach disappear. It is time for your task to begin anew.\nYou have reached Ascension Level "+str(context[2][ctx.author.id][4])+".")
 
-        if context[2][ctx.author.id][3] == (50+(context[2][ctx.author.id][4]*5)) and context[2][ctx.author.id][4] == 40:
-            output += ("\nYour ascension is complete. You are now the most powerful Coin-Eater in the galaxy.")
+        if context[2][ctx.author.id][3] == (50+(context[2][ctx.author.id][4]*5)) and context[2][ctx.author.id][4] == 25:
+            output += ("\nYour ascension is complete. You are now the most powerful Coin-Eater in the galaxy.\nHowever, you can still improve...")
 
 
         await ctx.send(output)
