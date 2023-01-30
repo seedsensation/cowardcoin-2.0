@@ -19,7 +19,7 @@ async def filecheck():
             if member.id not in coins:
                 coins[member.id] = [0, 0, 0, 0]
 
-            while len(coins[member.id]) < 4:
+            while len(coins[member.id]) < 5:
                 coins[member.id].append(0)
     print(coins)
     file = open(Path("files/text files/coins.txt"), "w")

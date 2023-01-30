@@ -40,6 +40,7 @@ async def stylecalc(args):
         if context[2][ctx.author.id][3] >= 1:
             style += context[2][ctx.author.id][3]
             context[2][ctx.author.id][3] = 0
+        style += context[2][ctx.author.id][4]
         print(str(style))
         if amount == 1 and style > 25:
             output = "You flip a coin!\n"
@@ -79,7 +80,26 @@ async def stylecalc(args):
 
 async def eat_command(ctx):
     if context[2][ctx.author.id][0] >= 1:
-        await ctx.send("You have eaten a coin!")
+        output = "You have eaten a coin!"
         context[2][ctx.author.id][0] -= 1
         context[2][ctx.author.id][3] += 1
-        savecoins(ctx)
+        if context[2][ctx.author.id][3] == 5 and message.channel.id == 813898229368094760:
+            output += ("\nCOIN FACT: You can also run commands by DMing me!")
+        elif context[2][ctx.author.id][3] == (45+(context[ctx.author.id][4]*5)):
+            output += ("\nYou feel extremely full...")
+        elif context[2][ctx.author.id][3] == 45:
+            output += ("\nYou can't eat any more coins or you feel like you'll explode...")
+        elif context[2][ctx.author.id][3] == (50+(context[ctx.author.id][4]*5)) and context[ctx.author.id][4] <= 40:
+            context[2][ctx.author.id][3] = 0
+            context[2][ctx.author.id][4] += 1
+            output += ("\nYou Ascend. You have reached peak Coin Eating. All coins in your stomach disappear. It is time for your task to begin again.\nYou have reached Ascension Level "+str(context[2][ctx.author.id][4])+".")
+        elif context[2][ctx.author.id][3] == (50+(context[ctx.author.id][4]*5)) and context[ctx.author.id][4] > 40:
+            context[2][ctx.author.id][3] = 0
+            output += ("\nYou Ascend - but now that you have reached your peak, your ascension is meaningless.")
+
+        if context[2][ctx.author.id][3] == (50+(context[ctx.author.id][4]*5)) and context[ctx.author.id][4] == 40:
+            output += ("\nYour ascension is complete. You are now the most powerful Coin-Eater in the galaxy.")
+
+
+        await ctx.send(output)
+        await savecoins(ctx)
