@@ -83,7 +83,7 @@ async def eat_command(ctx):
         output = "You have eaten a coin!"
         context[2][ctx.author.id][0] -= 1
         context[2][ctx.author.id][3] += 1
-        if context[2][ctx.author.id][3] == 5 and message.channel.id == 813898229368094760:
+        if context[2][ctx.author.id][3] == 5 and ctx.channel.id == 813898229368094760:
             output += ("\nCOIN FACT: You can also run commands by DMing me!")
         elif context[2][ctx.author.id][3] == (45+(context[2][ctx.author.id][4]*5)):
             output += ("\nYou feel extremely full...")

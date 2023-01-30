@@ -18,7 +18,7 @@ context = [
     [0, 0],     # 11 - streak counter - [0] = user ID, [1] = streak count
     0,          # 12 - coin value - 0 = undefined, 1 = bronze, 2 = silver, 3 = gold, 4 = red
     [50,85,99], # 13 - coin variant rarities - random number gen 1-100, below [0] = bronze, below [1] = silver, below [2] = gold, else red
-    True,      # 14 - TESTING MODE - DO NOT EVER ENABLE WHEN BOT IS LIVE
+    False,      # 14 - TESTING MODE - DO NOT EVER ENABLE WHEN BOT IS LIVE
 ]
 
 # coin variants: [0] = display name, [1] = emote, [2] = file name (-.gif), [3] = value
