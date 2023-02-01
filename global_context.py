@@ -12,7 +12,7 @@ context = [
     1800,       # 5 - maximum number of seconds before next coin (default: 1800)
     True,       # 6 - does a coin need to be created?
     120,        # 7 - time until coin expires (default: 120)
-    21600,      # 8 - minimum time between tricks
+    14400,      # 8 - minimum time between tricks in seconds (default: 14400)
     25,         # 9 - upper bound for losing coins
     90,         # 10 - lower bound for doubling coins
     [0, 0],     # 11 - streak counter - [0] = user ID, [1] = streak count
