@@ -52,7 +52,7 @@ The Future is Fair Play.
                     if sheet[f"A{x}"].value == None:
                         break
                     else:
-                        if str(sheet[f"A{x}"].value).lower() == (args[1]):
+                        if str(sheet[f"A{x}"].value).lower() == (args[1]).lower():
                             sheet[f"B{x}"].value += int(args[2])
                             complete = True
                 try:
