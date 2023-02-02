@@ -13,4 +13,8 @@ async def count_coin(ctx):
             output += "\nYou currently have a streak of "+str(context[11][1])+" coins in a row! 🔥"
         if context[2][ctx.author.id][4] > 0:
             output += "\nYou have reached Ascension Level "+str(context[2][ctx.author.id][4])+"."
+        if ctx.author.id == 1070754908845912154:
+            output += "\nYou currently own `95%` of Shares of CowardCoin."
+        elif ctx.author.id == 431047023689596928:
+            output += "\nYou currently own `5%` of Shares of CowardCoin."
         await ctx.send(output)
