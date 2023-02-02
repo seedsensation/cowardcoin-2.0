@@ -12,15 +12,25 @@ context = [
     1800,       # 5 - maximum number of seconds before next coin (default: 1800)
     True,       # 6 - does a coin need to be created?
     120,        # 7 - time until coin expires (default: 120)
-    21600,      # 8 - minimum time between tricks
+    14400,      # 8 - minimum time between tricks in seconds (default: 14400)
     25,         # 9 - upper bound for losing coins
     90,         # 10 - lower bound for doubling coins
     [0, 0],     # 11 - streak counter - [0] = user ID, [1] = streak count
     0,          # 12 - coin value - 0 = undefined, 1 = bronze, 2 = silver, 3 = gold, 4 = red
     [50,85,99], # 13 - coin variant rarities - random number gen 1-100, below [0] = bronze, below [1] = silver, below [2] = gold, else red
+    False,      # 14 - TESTING MODE - DO NOT EVER ENABLE WHEN BOT IS LIVE
 ]
 
-# [0] = display name, [1] = emote, [2] = file name (-.gif), [3] = value
+election = {
+
+    "A":["Eat the Rich", "*Redistribution.* \nOnce every week, the Collector with the most Coins in the Server will have all of their Coins redistributed to the rest of the Server."],
+    "B":["Flip the Leaderboard", "*Reverse the Polarity.* \nThe Leaderboard will be Flipped. #1's Coins will be replaced with #20's, #2 with #19's, and so on."],
+    "C":["Total Reset", "*Square One.* \nAll Coins and StylePoints™ will be reset back to 0. All unnecessary features will be Disabled."],
+
+}
+
+
+# coin variants: [0] = display name, [1] = emote, [2] = file name (-.gif), [3] = value
 coinrarities = {
     0   :   ["undefined","[error]","error",0],
     1   :   ["bronze","<a:bronzecoin:844545666201288755>","bronze",1],
