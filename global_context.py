@@ -21,6 +21,15 @@ context = [
     False,      # 14 - TESTING MODE - DO NOT EVER ENABLE WHEN BOT IS LIVE
 ]
 
+election = {
+
+    "A":["Eat the Rich", "*Redistribution.* \nOnce every week, the Collector with the most Coins in the Server will have all of their Coins redistributed to the rest of the Server."],
+    "B":["Flip the Leaderboard", "*Reverse the Polarity.* \nThe Leaderboard will be Flipped. #1's Coins will be replaced with #20's, #2 with #19's, and so on."],
+    "C":["Total Reset", "*Square One.* \nAll Coins and StylePoints™ will be reset back to 0. All unnecessary features will be Disabled."],
+
+}
+
+
 # coin variants: [0] = display name, [1] = emote, [2] = file name (-.gif), [3] = value
 coinrarities = {
     0   :   ["undefined","[error]","error",0],

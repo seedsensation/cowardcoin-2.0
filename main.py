@@ -9,6 +9,7 @@ from commands_folder.count_file import *
 from commands_folder.give_file import *
 from commands_folder.shop_file import *
 from commands_folder.tip_file import *
+from commands_folder.elections import *
 
 from time import *
 from commands import *
@@ -67,7 +68,7 @@ async def maintenancemode(ctx):
     else:
         context[14] = 1-(context[14])
 
-commandslist = {"echo":[1,echo_command],"get":[0,get_command],"leaderboard":[1,leaderboard_command],"debug":[1,debug],"help":[1,help_coin],"count":[0,count_coin],"give":[1,give_command],"coin":[0,view_coin],"shop":[1,shop_command],"tip":[1,tip_command],"eat":[0,eat_command],"maintenance":[0,maintenancemode]}
+commandslist = {"echo":[1,echo_command],"get":[0,get_command],"leaderboard":[1,leaderboard_command],"debug":[1,debug],"help":[1,help_coin],"count":[0,count_coin],"give":[1,give_command],"coin":[0,view_coin],"shop":[1,shop_command],"tip":[1,tip_command],"eat":[0,eat_command],"maintenance":[0,maintenancemode],"vote":[1,vote]}
 # 0 = needs no args
 # 1 = needs args
 
