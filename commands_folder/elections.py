@@ -10,14 +10,14 @@ async def vote(ctx,args):
         output = """Welcome to the Future of CowardCoin.
 Welcome to Fair Play.
 Starting now, each week, an Election shall be run.
-The Decree with the most Votes will become Law for the entire Server.
+The Law with the most Votes will become Law for the entire Server.
 To Vote, type `!coin vote [LETTER] [NUMBER]` - e.g., `!coin vote A 12`, to put 12 Votes into """+str(election[decrees[0]][0])+""".
 One Coin is One Vote.
 Help Us decide the Future of CowardCoin.
 The Future is Bright.
 The Future is Fair Play.
 
-***DECREES:***\n"""
+***LAWS:***\n"""
         for item in decrees:
             output+=f"{item} - **{election[item][0]}**\n{election[item][1]}\n"
 
@@ -28,8 +28,9 @@ The Future is Fair Play.
             test = float(args[2])%1
         except ValueError:
             await ctx.send("NUMBER FAIL !!")
+            test = 1
 
-        if len(args[1]) == 1 and (float(args[2])%1)==0:
+        if len(args[1]) == 1 and (test)==0:
             if int(args[2]) <= context[2][ctx.author.id][0]:
                 if not os.path.exists("elections.xlsx"):
                     workbook = Workbook()
@@ -60,7 +61,7 @@ The Future is Fair Play.
                     if complete:
                         await ctx.send(f"Your vote for {args[1]} has been submitted successfully!")
                     else:
-                        await ctx.send(f"{args[1]} is not a valid Decree.")
+                        await ctx.send(f"{args[1]} is not a valid Law.")
 
                     context[2][ctx.author.id][0] -= int(args[2])
                     await savecoins(ctx)
