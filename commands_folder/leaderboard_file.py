@@ -1,4 +1,5 @@
 from global_context import *
+import logger
 
 async def leaderboard_command(ctx,args):
     if len(args) == 2 and args[1].lower() == "style":
@@ -59,21 +60,24 @@ async def leaderboard_command(ctx,args):
         await ctx.send(output)
         
     elif len(args) == 2 and args[1].lower() == "ascension":
-        ascensions = context[2]
-        ascensiondict = {}
-        for item in ascensions:
-            ascensiondict[item] = ascensions[item][3]
-        sortedascensiondict = sorted(ascensiondict.items(), key=lambda x: x[1])
-        print(sortedascensiondict)
-        if len(sortedascensiondict) > 6:
-            max = 6
-        else:
-            max = len(sortedascensiondict)
-        output = "<a:gold:1038495846074941440> **ASCENSION LEADERBOARD** <a:gold:1038495846074941440>\n"
-        for x in range(1, max):
-            user = await bot.fetch_user(sortedascensiondict[-x][0])
-            output += (str(x) + ". **" + str(user.display_name) + "** - " + str(sortedascensiondict[-x][1]) + " Ascension Levels\n")
-        await ctx.send(output)
+        try:
+            ascensions = context[2]
+            ascensiondict = {}
+            for item in ascensions:
+                ascensiondict[item] = ascensions[item][3]
+            sortedascensiondict = sorted(ascensiondict.items(), key=lambda x: x[1])
+            print(sortedascensiondict)
+            if len(sortedascensiondict) > 6:
+                max = 6
+            else:
+                max = len(sortedascensiondict)
+            output = "<a:gold:1038495846074941440> **ASCENSION LEADERBOARD** <a:gold:1038495846074941440>\n"
+            for x in range(1, max):
+                user = await bot.fetch_user(sortedascensiondict[-x][0])
+                output += (str(x) + ". **" + str(user.display_name) + "** - " + str(sortedascensiondict[-x][1]) + " Ascension Levels\n")
+            await ctx.send(output)
+        except BaseException, e:
+            logger.error('Error: ' + str(e))
         
         
     else:
