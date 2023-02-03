@@ -69,10 +69,10 @@ async def leaderboard_command(ctx,args):
             max = 6
         else:
             max = len(sortedascensiondict)
-        output = "<a:gold:1038495846074941440> **LEADERBOARD** <a:gold:1038495846074941440>\n"
+        output = "<a:gold:1038495846074941440> **ASCENSION LEADERBOARD** <a:gold:1038495846074941440>\n"
         for x in range(1, max):
             user = await bot.fetch_user(sortedascensiondict[-x][0])
-            output += (str(x) + ". **" + str(user.display_name) + "** - " + str(sortedascensiondict[-x][1]) + " ascensionPoints™\n")
+            output += (str(x) + ". **" + str(user.display_name) + "** - " + str(sortedascensiondict[-x][1]) + " Ascension Levels\n")
         await ctx.send(output)
         
         
