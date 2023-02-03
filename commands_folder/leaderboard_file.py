@@ -77,7 +77,7 @@ async def leaderboard_command(ctx,args):
                 output += (str(x) + ". **" + str(user.display_name) + "** - " + str(sortedascensiondict[-x][1]) + " Ascension Levels\n")
             await ctx.send(output)
         except BaseException, e:
-            logger.error('Error: ' + str(e))
+            await ctx.send('Error: ' + str(e))
         
         
     else:
