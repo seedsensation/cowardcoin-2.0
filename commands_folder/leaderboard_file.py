@@ -62,7 +62,7 @@ async def leaderboard_command(ctx,args):
         ascensions = context[2]
         ascensiondict = {}
         for item in ascensions:
-            ascensiondict[item] = ascensions[item][4]
+            ascensiondict[item] = ascensions[item][3]
         sortedascensiondict = sorted(ascensiondict.items(), key=lambda x: x[1])
         print(sortedascensiondict)
         if len(sortedascensiondict) > 6:
