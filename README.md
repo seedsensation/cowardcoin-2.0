@@ -1,4 +1,4 @@
-# MARSUPIALCOIN 2.0
+# CowardCoin 2.0
 ## Introduction
 This project is a little Discord bot that creates coins in a specified channel.
 
@@ -12,7 +12,8 @@ This project is a little Discord bot that creates coins in a specified channel.
  6. ~~Give coins to each other~~
  7. ~~Coin Shop~~
  8. ~~Skateboard tricks??????~~
- 9. Coin Streaks 
+ 9. ~~Coin Streaks~~ 
+ 10. ***Under New Management***
 
 ## About the Project
 This was a little something I made for my friends a while ago, but the way I had it formatted made the code absolutely indecipherable, with every command from the same file, and cross referencing every single message with every possible command.
