@@ -35,7 +35,7 @@ async def on_ready():
     await bot.change_presence(activity=discord.Game(name="the economy 😎"))
     print(CHANNEL)
     coinchannel = bot.get_channel(int(CHANNEL))
-    await coinchannel.send("Restarted successfully!")
+    #await coinchannel.send("Restarted successfully!")
     print("Restarted successfully")
     await create_coin()
 
