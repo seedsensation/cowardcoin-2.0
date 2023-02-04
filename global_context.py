@@ -34,7 +34,7 @@ election = {
     "A":["Thievery", "*Take What's Yours.* \nAdds a new command that allows you to Steal Coins from other Collectors."],
     "B":["Unlimited Tricks", "*To the Stratosphere.* \nAll limits on Tricks shall be Removed."],
     "C":["Total Reset", "*Square One.* \nAll Coins and StylePoints™ will be reset back to 0. All unnecessary features will be Disabled."],
-    "D":["Release the Prisoner", "*Open the Cell.* \nSet him Free."],
+    #"D":["Release the Prisoner", "*Open the Cell.* \nSet him Free."],
 
 }
 
