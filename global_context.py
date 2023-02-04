@@ -21,11 +21,20 @@ context = [
     False,      # 14 - TESTING MODE - DO NOT EVER ENABLE WHEN BOT IS LIVE
 ]
 
-election = {
+pastelection = {
 
     "A":["Eat the Rich", "*Redistribution.* \nOnce every week, the Collector with the most Coins in the Server will have all of their Coins redistributed to the rest of the Server."],
     "B":["Flip the Leaderboard", "*Reverse the Polarity.* \nThe Leaderboard will be Flipped. #1's Coins will be replaced with #20's, #2 with #19's, and so on."],
     "C":["Total Reset", "*Square One.* \nAll Coins and StylePoints™ will be reset back to 0. All unnecessary features will be Disabled."],
+
+}
+
+election = {
+
+    "A":["Thievery", "*Take What's Yours.* \nAdds a new command that allows you to Steal Coins from other Collectors."],
+    "B":["Unlimited Tricks", "*To the Stratosphere.* \nAll limits on Tricks shall be Removed."],
+    "C":["Total Reset", "*Square One.* \nAll Coins and StylePoints™ will be reset back to 0. All unnecessary features will be Disabled."],
+    "D":["Release the Prisoner", "*Open the Cell.* \nSet him Free."],
 
 }
 

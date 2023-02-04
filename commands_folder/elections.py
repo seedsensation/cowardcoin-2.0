@@ -2,7 +2,9 @@ from global_context import *
 from openpyxl import Workbook,load_workbook
 import os.path
 from commands_folder.store_coins_file import *
-
+from discord.utils import get
+from time import sleep
+from math import floor
 async def vote(ctx,args):
     decrees = list(election.keys())
     if len(args) == 1:
@@ -19,7 +21,7 @@ The Future is Fair Play.
 
 ***LAWS:***\n"""
         for item in decrees:
-            output+=f"{item} - **{election[item][0]}**\n{election[item][1]}\n"
+            output+=f"{item} - **{election[item][0]}**\n{election[item][1]}\n\n"
 
         await ctx.send(output)
 
@@ -78,3 +80,42 @@ The Future is Fair Play.
 
         else:
             await ctx.send("Sorry, that number of votes isn't valid!")
+
+async def enact(ctx):
+    check_role = get(ctx.guild.roles, name="admins")
+    if check_role not in ctx.author.roles:
+        await ctx.send("Admins only... sorry :(")
+    else:
+        result = ["A"]
+        s = ""
+        if len(result) > 1:
+            s = "s"
+        output = f"The Following Law{s} will be Enacted with Immediate Effect:\n\n"
+        for item in result:
+            output += f"**{item}** - ***{pastelection[item][0]}*** - 95.39% of the Vote\n{pastelection[item][1]}\n\n"
+
+        await ctx.send(output)
+        sleep(5)
+        await eat_the_rich(ctx)
+
+
+async def eat_the_rich(ctx):
+    await ctx.send("Executing 'Eat the Rich'.")
+    sleep(2.5)
+    coins = context[2]
+    coindict = {}
+    for item in coins:
+        if coins[item][0] != 0:
+            coindict[item] = coins[item][0]
+    sortedcoindict = sorted(coindict.items(), key=lambda x: x[1], reverse=True)
+    recipientobject = bot.get_user(sortedcoindict[0][0])
+    await ctx.send(f"{recipientobject.display_name} is the Richest Collector this week.\nThey have {sortedcoindict[0][1]} coins.")
+    amount = floor(sortedcoindict[0][1]/len(coins))
+    coins[recipientobject.id][0] -= (amount*len(coins))
+    for user in coins:
+        coins[user][0] += amount
+    sleep(2.5)
+    await ctx.send(f"Everyone receives {amount} coins from the Redistribution.")
+    print(coins)
+    context[2] = coins
+    await savecoins(ctx)
