@@ -102,7 +102,15 @@ async def eat_command(ctx):
 
         if context[2][ctx.author.id][3] == (50+(context[2][ctx.author.id][4]*5)) and context[2][ctx.author.id][4] == 25:
             output += ("\nYour ascension is complete. You are now the most powerful Coin-Eater in the galaxy.\nHowever, you can still improve...")
-
+            
+        if context[2][ctx.author.id][3] == (50+(context[2][ctx.author.id][4]*5)) and context[2][ctx.author.id][4] == 30:
+            output += ("\nNo mere mortal has ever reached your heights of coin-eating. Your deeds shall live in infamy for the rest of time.\nHowever, if you continue to ascend, something in the dark may begin to notice.")
+        
+        if context[2][ctx.author.id][3] == (50+(context[2][ctx.author.id][4]*5)) and context[2][ctx.author.id][4] == 35:
+            output += ("\nIn the darkness between the stars, a presence awakes.")
+            
+        if context[2][ctx.author.id][3] == (50+(context[2][ctx.author.id][4]*5)) and context[2][ctx.author.id][4] == 40:
+            output += ("\nThe presence senses the sheer power of your coins, and space itself begins to shift as it begins to tread towards you.")
 
         await ctx.send(output)
         await savecoins(ctx)
