@@ -2,6 +2,7 @@ from global_context import *
 from commands_folder.store_coins_file import savecoins
 import math
 import time
+import random
 async def give_command(ctx,args):
     print(args)
     if len(args)==3:
