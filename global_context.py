@@ -23,9 +23,9 @@ context = [
 
 election = {
 
-    "A":["Eat the Rich", "*Redistribution.* \nOnce every week, the Collector with the most Coins in the Server will have all of their Coins redistributed to the rest of the Server."],
-    "B":["Flip the Leaderboard", "*Reverse the Polarity.* \nThe Leaderboard will be Flipped. #1's Coins will be replaced with #20's, #2 with #19's, and so on."],
-    "C":["Total Reset", "*Square One.* \nAll Coins and StylePoints™ will be reset back to 0. All unnecessary features will be Disabled."],
+    "A":["Eat the Rich (NEW)", "*Redistribution.* \nOnce every week, the Collector with the most Coins in the Server will have all of their Coins redistributed to the rest of the Server."],
+    "B":["StylePoints™ Redux™", "*Be the Very Best.* \nCreate tiers of rewards for Coin Tricks. Give StylePoints™ meaning."],
+    "C":["Into Battle", "*Random Encounters.* \nMonsters will occasionally appear in <#813898229368094760>. Fight them off in **Turn-Based Combat** to earn their Treasure."],
 
 }
 

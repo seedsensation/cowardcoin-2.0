@@ -9,15 +9,15 @@ async def vote(ctx,args):
         print(decrees)
         output = """Welcome to the Future of CowardCoin.
 Welcome to Fair Play.
-Starting now, each week, an Election shall be run.
-The Decree with the most Votes will become Law for the entire Server.
+Each week, an Election shall be run.
+The Law with the most Votes will become Law for the entire Server.
 To Vote, type `!coin vote [LETTER] [NUMBER]` - e.g., `!coin vote A 12`, to put 12 Votes into """+str(election[decrees[0]][0])+""".
 One Coin is One Vote.
 Help Us decide the Future of CowardCoin.
 The Future is Bright.
 The Future is Fair Play.
 
-***DECREES:***\n"""
+***LAWS:***\n"""
         for item in decrees:
             output+=f"{item} - **{election[item][0]}**\n{election[item][1]}\n"
 
