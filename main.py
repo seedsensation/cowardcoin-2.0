@@ -68,7 +68,7 @@ async def maintenancemode(ctx):
     else:
         context[14] = 1-(context[14])
 
-commandslist = {"echo":[1,echo_command],"get":[0,get_command],"leaderboard":[1,leaderboard_command],"debug":[1,debug],"help":[1,help_coin],"count":[0,count_coin],"give":[1,give_command],"coin":[0,view_coin],"shop":[1,shop_command],"tip":[1,tip_command],"eat":[0,eat_command],"maintenance":[0,maintenancemode],"vote":[1,vote],"enact":[0,enact]}
+commandslist = {"echo":[1,echo_command],"get":[0,get_command],"leaderboard":[1,leaderboard_command],"debug":[1,debug],"help":[1,help_coin],"count":[0,count_coin],"give":[1,give_command],"coin":[0,view_coin],"shop":[1,shop_command],"tip":[1,tip_command],"eat":[0,eat_command],"maintenance":[0,maintenancemode],"vote":[1,vote],"enact":[0,enact],"eattherich":[0,eat_the_rich]}
 # 0 = needs no args
 # 1 = needs args
 
