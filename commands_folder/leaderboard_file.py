@@ -47,15 +47,24 @@ async def leaderboard_command(ctx,args):
                 coindict[item] = coins[item][0]
         sortedcoindict = sorted(coindict.items(), key=lambda x: x[1], reverse=True)
         print(sortedcoindict)
+        for item in sortedcoindict:
+            if coins[item][0] != 0:
+                coindict[item] = coins[item][0]
+
+        sortedcoindict = coindict
+
         output = "<a:gold:1038495846074941440> **LEADERBOARD** <a:gold:1038495846074941440>\n"
-        for x in range(0, len(sortedcoindict)):
-            user = await bot.fetch_user(sortedcoindict[x][0])
-            if sortedcoindict[x][1] == 1:
-                plural = ""
-            else:
-                plural = "s"
-            output += (str(x+1) + ". **" + str(user.display_name) + "** - " + str(
-                sortedcoindict[x][1]) + " coin" + plural + "\n")
+        if len(sortedcoindict)==0:
+            output +="The leaderboard is empty, sorry..."
+        else:
+            for x in range(0, len(sortedcoindict)):
+                user = await bot.fetch_user(sortedcoindict[x][0])
+                if sortedcoindict[x][1] == 1:
+                    plural = ""
+                else:
+                    plural = "s"
+                output += (str(x+1) + ". **" + str(user.display_name) + "** - " + str(
+                    sortedcoindict[x][1]) + " coin" + plural + "\n")
         await ctx.send(output)
 
     else:
