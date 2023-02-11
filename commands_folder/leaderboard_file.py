@@ -58,8 +58,7 @@ async def leaderboard_command(ctx,args):
                     plural = ""
                 else:
                     plural = "s"
-                output += (str(x+1) + ". **" + str(user.display_name) + "** - " + str(
-                    sortedcoindict[x][1]) + " coin" + plural + "\n")
+                output += (str(x+1) + ". **" + str(user.display_name) + "** - " + str(sortedcoindict[x][1]) + " coin" + plural + "\n")
         await ctx.send(output)
 
     else:
