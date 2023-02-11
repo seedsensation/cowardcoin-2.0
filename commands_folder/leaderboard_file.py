@@ -82,7 +82,7 @@ async def leaderboard_command(ctx,args):
             output = "<a:gold:1038495846074941440> **LEADERBOARD** <a:gold:1038495846074941440>\n"
             for x in range(0,max):
                 user = await bot.fetch_user(sortedcoindict[-x][0])
-                output += (str(x)+". **"+str(user.display_name) + "** - " + str(sortedcoindict[-x][1])+" coins\n")
+                output += (str(x+1)+". **"+str(user.display_name) + "** - " + str(sortedcoindict[-x][1])+" coins\n")
         await ctx.send(output)
 
 
