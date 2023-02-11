@@ -47,11 +47,6 @@ async def leaderboard_command(ctx,args):
                 coindict[item] = coins[item][0]
         sortedcoindict = sorted(coindict.items(), key=lambda x: x[1], reverse=True)
         print(sortedcoindict)
-        for item in sortedcoindict:
-            if coins[item][0] != 0:
-                coindict[item] = coins[item][0]
-
-        sortedcoindict = coindict
 
         output = "<a:gold:1038495846074941440> **LEADERBOARD** <a:gold:1038495846074941440>\n"
         if len(sortedcoindict)==0:
@@ -70,18 +65,25 @@ async def leaderboard_command(ctx,args):
     else:
         coins = context[2]
         coindict = {}
+        output = ""
         for item in coins:
-            coindict[item] = coins[item][0]
+            if coins[item][0] != 0:
+                print(item)
+                coindict[item] = coins[item][0]
+
         sortedcoindict = sorted(coindict.items(), key=lambda x:x[1])
         print(sortedcoindict)
-        if len(sortedcoindict) > 6:
-            max = 6
+        if len(sortedcoindict)==0:
+            output +="The leaderboard is empty, sorry..."
         else:
-            max = len(sortedcoindict)
-        output = "<a:gold:1038495846074941440> **LEADERBOARD** <a:gold:1038495846074941440>\n"
-        for x in range(1,max):
-            user = await bot.fetch_user(sortedcoindict[-x][0])
-            output += (str(x)+". **"+str(user.display_name) + "** - " + str(sortedcoindict[-x][1])+" coins\n")
+            if len(sortedcoindict) > 6:
+                max = 6
+            else:
+                max = len(sortedcoindict)
+            output = "<a:gold:1038495846074941440> **LEADERBOARD** <a:gold:1038495846074941440>\n"
+            for x in range(1,max):
+                user = await bot.fetch_user(sortedcoindict[-x][0])
+                output += (str(x)+". **"+str(user.display_name) + "** - " + str(sortedcoindict[-x][1])+" coins\n")
         await ctx.send(output)
 
 
