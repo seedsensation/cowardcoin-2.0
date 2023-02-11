@@ -1,12 +1,10 @@
 import logging
 
-from commands_folder.echo_file import *
 from commands_folder.create_file import *
-from commands_folder.get_file import *
 from commands_folder.leaderboard_file import *
 from commands_folder.help_file import *
-from commands_folder.count_file import *
 from commands_folder.give_file import *
+from commands_folder.store_coins_file import *
 
 from time import *
 from commands import *
@@ -65,3 +63,7 @@ async def coin(ctx,*args):
         print("Invalid command by "+ctx.author.display_name+" - "+args[0])
 
 bot.run(TOKEN)
+
+async def echo_command(ctx,arg):
+    await ctx.send(arg[1])
+
