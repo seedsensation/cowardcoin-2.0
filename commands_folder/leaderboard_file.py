@@ -70,7 +70,7 @@ async def leaderboard_command(ctx,args):
                 print(item)
                 coindict[item] = coins[item][0]
 
-        sortedcoindict = sorted(coindict.items(), key=lambda x:x[1])
+        sortedcoindict = sorted(coindict.items(), key=lambda x:x[1], reverse=True)
         print(sortedcoindict)
         if len(sortedcoindict)==0:
             output +="The leaderboard is empty, sorry..."
