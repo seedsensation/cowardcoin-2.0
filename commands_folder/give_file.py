@@ -1,8 +1,6 @@
 from global_context import *
-from commands_folder.store_coins_file import savecoins
-import math
-import time
-import random
+from commands_folder.style_file import stylecalc
+
 async def give_command(ctx,args):
     print(args)
     if len(args)==3:
@@ -38,7 +36,7 @@ async def give_command(ctx,args):
         await ctx.send("Not enough arguments were given. Please check the following:\n- Your message is formatted `!coin give @recipient [amount]`")
 
 
-async def stylecalc(args):
+'''async def stylecalc(args):
     ctx = args[0]
     amount = args[2]
     currenttime = time.time()
@@ -81,4 +79,4 @@ async def stylecalc(args):
         output += "You gain "+str(style)+" Style Points™!\nYou now have "+str(context[2][ctx.author.id][1])+" Style Points™."
         await ctx.send(output)
         await savecoins(ctx)
-        context[2][ctx.author.id][2] = time.time()
+        context[2][ctx.author.id][2] = time.time()'''
