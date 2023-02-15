@@ -1,4 +1,4 @@
-import logging
+'''import logging
 
 from commands_folder.create_file import *
 from commands_folder.get_file import *
@@ -88,3 +88,12 @@ async def coin(ctx,*args):
         print("Invalid command by "+ctx.author.display_name+" - "+args[0])
 
 bot.run(TOKEN)
+'''
+
+from commands_folder.combat.weapongen import item
+from random import randint
+
+while True:
+    weapon = item(randint(1,20))
+    print(f"{weapon.name} - Cost: {weapon.cost}")
+    input()
