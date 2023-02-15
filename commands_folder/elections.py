@@ -4,7 +4,7 @@ import os.path
 from commands_folder.store_coins_file import *
 
 async def vote(ctx,args):
-    ctx.send("The Election is currently Closed.")
+    await ctx.send("The Election is currently Closed.")
     '''decrees = list(election.keys())
     if len(args) == 1:
         print(decrees)
