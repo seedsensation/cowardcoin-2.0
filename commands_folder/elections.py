@@ -4,7 +4,8 @@ import os.path
 from commands_folder.store_coins_file import *
 
 async def vote(ctx,args):
-    decrees = list(election.keys())
+    ctx.send("The Election is currently Closed.")
+    '''decrees = list(election.keys())
     if len(args) == 1:
         print(decrees)
         output = """Welcome to the Future of CowardCoin.
@@ -76,4 +77,4 @@ The Future is Fair Play.
 
 
         else:
-            await ctx.send("Sorry, that number of votes isn't valid!")
+            await ctx.send("Sorry, that number of votes isn't valid!")'''
