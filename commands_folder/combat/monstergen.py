@@ -45,13 +45,15 @@ class monster():
         HPLower = 25
         HPHigher = 50
 
-        HPLower = floor(HPLower*(seed/10))
+        HPLower = floor(HPLower*(seed/10))*25
         HPHigher = floor(HPHigher*(seed/10))
 
 
 
         self.MaxHP = randint(HPLower,HPHigher)
         self.HP = self.MaxHP
+
+        self.XPGain = randint(floor(seed/10*HPLower),floor(seed/10*HPHigher))
 
     def attack(self,ctx):
         if self.ranged:

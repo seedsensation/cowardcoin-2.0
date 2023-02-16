@@ -1,5 +1,6 @@
 from gibberish import Gibberish
 from random import choice,randint
+from math import floor
 
 class item():
     def __init__(self,rarity):
@@ -15,46 +16,66 @@ class item():
         elif rarity == 20:
             self.rarity = "Legendary"
 
-        self.name = ""
+        self.type = choice(["Weapon","Armor"])
+        if self.type == "Weapon":
 
-        if rarity > 5:
-            adjectives = ["Durable","Sharp","Bright","Flaming","Painful","Expensive"]
-            self.adjective = choice(adjectives)
-            self.name += self.adjective+" "
+            self.name = ""
+
+            if rarity > 5:
+                adjectives = ["Durable","Sharp","Bright","Flaming","Painful","Expensive"]
+                self.adjective = choice(adjectives)
+                self.name += self.adjective+" "
+            else:
+                self.adjective = ""
+                self.name += "Common "
+
+            if rarity == 20:
+                chance = randint(1,20)
+                if chance == 20:
+                    self.name = "The Legendary Throngler"
+                else:
+                    gib = Gibberish()
+                    name = gib.generate_word(end_vowel=True,vowel_consonant_repeats=2)
+                    name = name.capitalize()
+                    self.name = f"The Legendary {name}r"
+
+            else:
+                weapontypes = ["Axe", "Sword", "Spear", "Bow", "Mace", "Dagger", "Wand", "Wooden Stick"]
+                self.weapontype = choice(weapontypes)
+
+                self.name += f"{self.weapontype}"
+
+                if rarity > 10:
+                    origins = ["the Arcane","the Ancients","the Cosmos","the Stars","Flame","Ice","Poison"]
+                    self.origin = choice(origins)
+                    self.name += f" of {self.origin}"
+
+            self.damagelower = floor(rarity/2)
+            self.damagehigher = floor(rarity/2)*3
+
         else:
-            self.adjective = ""
-            self.name += "Common "
 
-        if rarity == 20:
-            gib = Gibberish()
-            name = gib.generate_word(end_vowel=True,vowel_consonant_repeats=2)
-            name = name.capitalize()
-            self.name = f"The Legendary {name}r"
-        else:
-            weapontypes = ["Axe", "Sword", "Spear", "Bow", "Mace", "Dagger", "Wand", "Wooden Stick"]
-            self.type = choice(weapontypes)
+            self.name = ""
 
-            self.name += f"{self.type}"
+            if rarity > 5:
+                adjectives = ["Durable","Thorny","Blinding","Flaming","Expensive"]
+                self.adjective = choice(adjectives)
+                self.name += self.adjective+" "
+            else:
+                self.adjective = "Common"
 
-            if rarity > 10:
-                origins = ["the Arcane","the Ancients","the Cosmos","the Stars","Flame","Ice","Poison"]
-                self.origin = choice(origins)
-                self.name += f" of {self.origin}"
+            armortypes = ["Chestplate","Helmet","Leggings","Sleeves","Gauntlets"]
+            self.armortype = choice(armortypes)
+
+
+            self.name += f"{self.rarity} {self.armortype}"
 
         costlower = 25
-        costupper = 100
+        costupper = 50
 
         self.cost = randint(costlower,costupper)
 
         if self.adjective == "Expensive":
-            self.cost = cost*1.5
+            self.cost = self.cost*1.5
+        self.cost = floor(self.cost*(rarity/10))
 
-
-class weapon(item):
-    def __init__(self):
-        weapontypes = ["Axe", "Sword", "Spear", "Bow", "Mace", "Dagger", "Wand", "Wooden Stick"]
-        self.type = choice(weapontypes)
-
-
-class armour(item):
-    pass

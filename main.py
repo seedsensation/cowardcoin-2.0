@@ -92,6 +92,12 @@ bot.run(TOKEN)
 
 from commands_folder.combat.weapongen import item
 from random import randint
+from commands_folder.combat.collectorgen import CheckList
+
+collectorlist = CheckList()
+collector1 = collectorlist[0]
+print(f"ID: {collector1.id}\nAC: {collector1.AC}")
+
 
 while True:
     weapon = item(randint(1,20))
