@@ -1,4 +1,4 @@
-'''import logging
+import logging
 
 from commands_folder.create_file import *
 from commands_folder.get_file import *
@@ -7,12 +7,22 @@ from commands_folder.help_file import *
 from commands_folder.give_file import *
 from commands_folder.shop_file import *
 from commands_folder.elections import *
-
+from commands_folder.combat.weapongen import item
+from random import randint
+from commands_folder.combat.collectorgen import CheckList,ReadState
 from time import *
 from commands import *
 from commands_folder.check_task import *
 from pathlib import *
 from discord.utils import get
+
+if os.path.isfile("GameState.bin"):
+    collectorlist = ReadState()
+    print(collectorlist)
+    print(collectorlist[431047023689596928].display_name)
+    print(collectorlist[431047023689596928].UpdateStats())
+
+
 
 if not os.path.exists(Path(strftime("logs/%Y.%m.%d/"))):
     os.makedirs(Path(strftime("logs/%Y.%m.%d/")))  # make a folder if it doesn't already exist with the name of today's date
@@ -35,7 +45,16 @@ async def on_ready():
     coinchannel = bot.get_channel(int(CHANNEL))
     await coinchannel.send("Restarted successfully!")
     print("Restarted successfully")
+
+    collectorlist = CheckList()
+    print(collectorlist)
+    collector1 = collectorlist[431047023689596928]
+
+    print(f"ID: {collector1.id}\nAC: {collector1.AC}\nName: {collector1.display_name}")
+
     await create_coin()
+
+
 
 
     loop = asyncio.get_event_loop()
@@ -88,18 +107,4 @@ async def coin(ctx,*args):
         print("Invalid command by "+ctx.author.display_name+" - "+args[0])
 
 bot.run(TOKEN)
-'''
 
-from commands_folder.combat.weapongen import item
-from random import randint
-from commands_folder.combat.collectorgen import CheckList
-
-collectorlist = CheckList()
-collector1 = collectorlist[0]
-print(f"ID: {collector1.id}\nAC: {collector1.AC}")
-
-
-while True:
-    weapon = item(randint(1,20))
-    print(f"{weapon.name} - Cost: {weapon.cost}")
-    input()

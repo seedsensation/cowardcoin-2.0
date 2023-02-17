@@ -1,16 +1,25 @@
 from math import floor
 from global_context import bot
+import pickle
 
 class collector():
-    def __init__(self,ID):
-        self.maxHP = 10
-        self.XPtoLevel = 10
-        self.XP = 0
-        self.level = 1
-        self.AC = 10
-        self.inventory = []
-        self.equipped = dict.fromkeys(["Head","Chest","Legs","Arms","Hands"])
-        self.ID = ID
+    global defaultattributes
+    defaultattributes = {"maxHP": 10,
+                         "HP": 10,
+                         "xptolevel": 10,
+                         "xp": 0,
+                         "level": 1,
+                         "AC": 10,
+                         "inventory": [],
+                         "equipped": dict.fromkeys(["Head", "Chest", "Legs", "Arms", "Hands", "Weapon"]),
+                         "test":1
+                         }
+
+    def __init__(self,user):
+        for attr in defaultattributes:
+            setattr(self,attr,defaultattributes[attr])
+        self.id = user.id
+        self.display_name = user.display_name
 
     def XPGain(self,XP):
         self.XP += XP
@@ -20,22 +29,45 @@ class collector():
             self.AC += 1
             self.XPtoLevel = floor(self.XPtoLevel*1.5)
 
+    def UpdateStats(self):
+        attrlist = [a for a in dir(self) if not a.startswith("__")]
+        for attribute in defaultattributes:
+            if attribute not in attrlist:
+                setattr(self,attribute,defaultattributes[attribute])
+
+
 def CheckList():
     try:
         if collectorlist:
             pass
     except (KeyError,UnboundLocalError):
-        collectorlist = []
+        collectorlist = {}
 
     for guild in bot.guilds:
         for member in guild.members:
+            print(member.id)
             match = False
-            for collectoritem in collectorlist:
-                if collectoritem.ID == member.ID:
-                    match = True
-                    break
+            if member.id in collectorlist:
+                print("Collector already exists")
 
             if not match:
-                collectorlist.append(collector(member.id))
+                print(f"Creating object for collector {member.id}")
+                collectorlist[member.id] = collector(member)
 
+    for user in collectorlist.values():
+        print(user.display_name)
+        user.UpdateStats()
+        print(user.test)
+
+    SaveState(collectorlist)
+
+    return collectorlist
+
+def SaveState(collectorlist):
+    with open("GameState.bin","wb") as f:
+        pickle.dump(collectorlist, f)
+
+def ReadState():
+    with open("GameState.bin","rb") as f:
+        collectorlist = pickle.load(f)
     return collectorlist
