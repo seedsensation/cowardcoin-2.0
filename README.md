@@ -1,4 +1,4 @@
-# MARSUPIALCOIN 2.0
+# COWARDCOIN 2.0
 ## Introduction
 This project is a little Discord bot that creates coins in a specified channel.
 
