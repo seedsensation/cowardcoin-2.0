@@ -15,6 +15,7 @@ from commands import *
 from commands_folder.check_task import *
 from pathlib import *
 from discord.utils import get
+from commands_folder.combat.collectorgen import equip
 
 if os.path.isfile("GameState.bin"):
     collectorlist = ReadState()
@@ -45,12 +46,18 @@ async def on_ready():
     coinchannel = bot.get_channel(int(CHANNEL))
     await coinchannel.send("Restarted successfully!")
     print("Restarted successfully")
-
+    global collectorlist
     collectorlist = CheckList()
     print(collectorlist)
+
+    newitem = item(randint(1, 20))
+    collectorlist[431047023689596928].inventory.append(newitem)
+
+
+
     collector1 = collectorlist[431047023689596928]
 
-    print(f"ID: {collector1.id}\nAC: {collector1.AC}\nName: {collector1.display_name}")
+    print(f"ID: {collector1.id}\nAC: {collector1.AC}\nName: {collector1.display_name}\nInventory: {collector1.inventory}")
 
     await create_coin()
 
@@ -83,7 +90,13 @@ async def maintenancemode(ctx):
     else:
         context[14] = 1-(context[14])
 
-commandslist = {"echo":[1,echo_command],"get":[0,get_command],"leaderboard":[1,leaderboard_command],"debug":[1,debug],"help":[1,help_coin],"count":[0,count_coin],"give":[1,give_command],"coin":[0,view_coin],"shop":[1,shop_command],"maintenance":[0,maintenancemode],"vote":[1,vote]}
+async def InventoryDisplay(ctx):
+    global collectorlist
+    output = collectorlist[ctx.author.id].inventoryshow(ctx)
+    await ctx.send(output)
+
+
+commandslist = {"echo":[1,echo_command],"get":[0,get_command],"leaderboard":[1,leaderboard_command],"debug":[1,debug],"help":[1,help_coin],"count":[0,count_coin],"give":[1,give_command],"coin":[0,view_coin],"shop":[1,shop_command],"maintenance":[0,maintenancemode],"vote":[1,vote],"inventory":[0,InventoryDisplay],"equip":[1,equip]}
 # 0 = needs no args
 # 1 = needs args
 

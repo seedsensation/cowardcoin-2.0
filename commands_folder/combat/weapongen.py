@@ -16,9 +16,16 @@ class item():
         elif rarity == 20:
             self.rarity = "Legendary"
 
+        self.durability = randint(5,15)
+
+
         self.type = choice(["Weapon","Armor"])
         if self.type == "Weapon":
 
+            self.damage = randint(4, 8)
+            self.damage = floor(self.damage * (rarity / 10))
+
+            self.AC = 0
             self.name = ""
 
             if rarity > 5:
@@ -56,6 +63,9 @@ class item():
         else:
 
             self.name = ""
+            self.AC = randint(2,5)
+            self.AC = floor(self.AC*(rarity/10))
+            self.damage = 0
 
             if rarity > 5:
                 adjectives = ["Durable","Thorny","Blinding","Flaming","Expensive"]
@@ -78,4 +88,26 @@ class item():
         if self.adjective == "Expensive":
             self.cost = self.cost*1.5
         self.cost = floor(self.cost*(rarity/10))
+
+        if self.adjective == "Durable":
+            self.durability = floor(self.durability*1.5)
+
+        if self.adjective == "Tough":
+            self.AC = floor(self.AC*1.5)
+
+        if self.adjective == "Sharp":
+            self.damage = floor(self.damage*1.5)
+
+    def Display(self):
+        if self.type == "Weapon":
+            displayattributes = ["name","cost","damage","durability","rarity"]
+        else:
+            displayattributes = ["name","cost","AC","durability","armortype","rarity"]
+        output = ""
+        for attribute in displayattributes:
+            output += f"**{attribute.capitalize()}** - {getattr(self,attribute)}\n"
+
+        return output
+
+
 

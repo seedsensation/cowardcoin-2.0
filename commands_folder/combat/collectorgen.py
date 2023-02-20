@@ -35,6 +35,14 @@ class collector():
             if attribute not in attrlist:
                 setattr(self,attribute,defaultattributes[attribute])
 
+    def inventoryshow(self,ctx):
+        global collectorlist
+        output = "1. "
+        counter = 0
+        for item in self.inventory:
+            counter += 1
+            output += item.Display()
+        return output
 
 def CheckList():
     try:
@@ -71,3 +79,15 @@ def ReadState():
     with open("GameState.bin","rb") as f:
         collectorlist = pickle.load(f)
     return collectorlist
+
+async def equip(ctx,args):
+    global collectorlist
+    output = ""
+    if len(args) == 1:
+        output += "Type '!coin inventory' to view what items you have in your inventory, and then  '!coin equip 1' to equip the item in Slot 1."
+    else:
+        user = collectorlist(ctx.author.id)
+
+
+    await ctx.send(output)
+
