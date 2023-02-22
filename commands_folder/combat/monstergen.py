@@ -63,4 +63,18 @@ class monster():
 
 
         ctx.send(f"The {self.name} {attacktype} at {ctx.author.display_name} with its {self.weapon}!")
+    
+    def healthbar(self):
+        output = "["        
+
+        hp = (self.HP/self.MaxHP)*50
+
+        for x in range(1,50):
+            if hp > 0:
+                hp -= 1
+                output += "▓"
+            else:
+                output += "░"
+        output += f"] - {self.HP}/{self.MaxHP}"
+        return output
 
