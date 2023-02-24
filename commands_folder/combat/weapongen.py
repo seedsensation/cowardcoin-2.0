@@ -26,7 +26,7 @@ class item():
             self.damage = randint(4, 8)
             self.damage = ceil(self.damage * (rarity / 10))
 
-            weapontypes = ["Axe", "Sword", "Spear", "Bow", "Mace",                       "Dagger", "Wand", "Wooden Stick"]
+            weapontypes = ["Axe", "Sword", "Spear", "Bow", "Mace","Dagger", "Wand", "Wooden Stick"]
             self.weapontype = choice(weapontypes)
 
             self.AC = 0
@@ -119,6 +119,12 @@ class item():
             self.AC = self.AC*2
             self.cost = self.cost*2
             self.durability = self.durability*2
+
+    def __eq__(self, other):
+        try:
+            return self.__dict__ == other.__dict__
+        except AttributeError:
+            return False
             
         
 
