@@ -29,18 +29,42 @@ class collector():
         self.equipped = dict.fromkeys(["Head","Chest","Legs","Arms","Hands","Weapon"])
 
     def XPGain(self,XP):
-        self.XP += XP
-        if self.XP >= self.XPtoLevel:
-            self.XP -= self.XPtoLevel
+        output = ""
+        output += f"{self.display_name} gains {XP} XP.\n"
+        self.xp += XP
+        if self.xp >= self.xptolevel:
+            self.xp -= self.xptolevel
             self.level += 1
             self.AC += 1
-            self.XPtoLevel = floor(self.XPtoLevel*1.5)
+            self.xptolevel = floor(self.xptolevel*1.5)
+            output += f"{self.display_name} has reached Level {self.level}!\n"
+            self.maxHP += randint(2,5)
+            self.HP = self.maxHP
+
+            if not self.level%5:
+                self.AC += 1
+
+        return output
 
     def UpdateStats(self):
         attrlist = [a for a in dir(self) if not a.startswith("__")]
         for attribute in defaultattributes:
             if attribute not in attrlist:
                 setattr(self,attribute,defaultattributes[attribute])
+
+        totalbonusAC = 0
+        totalbonusdamage = 0
+        for item in self.equipped:
+            item = self.equipped[item]
+            if item:
+                if item.type == "Weapon":
+                    totalbonusdamage = item.damage
+                else:
+                    totalbonusAC += item.AC
+        self.bonusdamage = totalbonusdamage
+        self.bonusAC = totalbonusAC
+        self.damage = 1+self.bonusdamage
+        self.AC = 10+self.bonusAC
 
     def inventoryshow(self,ctx):
         output = ""
@@ -55,10 +79,26 @@ class collector():
         ***Your Current Stats***
         Level: {self.level}
         XP: {self.xp}/{self.xptolevel}
-        HP: {self.HP}/{self.maxHP} 
+        HP: {self.healthbar(40)}
         AC: {self.AC} (of which is from armor: {self.bonusAC})
         Damage: {self.damage} (of which is from weapons: {self.bonusdamage})
         """
+        return output
+
+    def healthbar(self,percent):
+        output = "["
+
+
+        hp = (self.HP/self.maxHP)*percent
+
+        for x in range(1,percent):
+            if hp > 0:
+                hp -= 1
+                output += "▓"
+            else:
+                output += "░"
+
+        output += f"] - {self.HP}/{self.maxHP}"
         return output
 
 # "maxHP": 10,
@@ -98,11 +138,10 @@ def CheckList(collectorlist):
         user.UpdateStats()
         print(user.inventory)
 
-    SaveState(collectorlist)
-
     return collectorlist
 
 def SaveState(collectorlist):
+    collectorlist = CheckList(collectorlist)
     with open("GameState.bin","wb") as f:
         pickle.dump(collectorlist, f)
     print(f"Saved State {collectorlist}")

@@ -1,9 +1,8 @@
 from random import randint,choice
-from math import floor
+from math import floor,ceil
 
 class monster():
-    def __init__(self):
-        seed = randint(1,20)
+    def __init__(self,seed):
         self.CR = seed
         self.difficulty = floor(seed/4)
 
@@ -42,39 +41,50 @@ class monster():
 
         print(self.name)
 
-        HPLower = 25
-        HPHigher = 50
+        HPLower = 5
+        HPHigher = 15
 
-        HPLower = floor(HPLower*(seed/10))*25
-        HPHigher = floor(HPHigher*(seed/10))
+        HPLower = HPLower*seed
+        HPHigher = HPHigher*seed
 
-
+        self.AC = 10+seed
 
         self.MaxHP = randint(HPLower,HPHigher)
         self.HP = self.MaxHP
 
-        self.XPGain = randint(floor(seed/10*HPLower),floor(seed/10*HPHigher))
+        self.AttackLower = seed
+        self.AttackHigher = 5*seed
 
-    def attack(self,ctx):
+
+
+        self.XPGain = randint(ceil(seed/10*HPLower),ceil(seed/10*HPHigher))
+
+        self.status = ""
+
+    def attack(self,attacker):
         if self.ranged:
             attacktype = "fires"
         else:
             attacktype = "swings"
 
 
-        ctx.send(f"The {self.name} {attacktype} at {ctx.author.display_name} with its {self.weapon}!")
+        output = (f"The {self.name} {attacktype}with its {self.weapon} at {attacker.display_name}!\n")
+
+        return output
     
-    def healthbar(self):
+    def healthbar(self,percent):
         output = "["        
 
-        hp = (self.HP/self.MaxHP)*50
 
-        for x in range(1,50):
+        hp = (self.HP/self.MaxHP)*percent
+
+        for x in range(1,percent):
             if hp > 0:
                 hp -= 1
                 output += "▓"
             else:
                 output += "░"
+
         output += f"] - {self.HP}/{self.MaxHP}"
         return output
 

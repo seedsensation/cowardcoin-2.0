@@ -1,6 +1,9 @@
 from global_context import *
 from commands_folder import store_coins_file
 from random import choice,randint
+import os
+from commands_folder.combat.battle import LoadCombat
+from commands_folder.combat.collectorgen import ReadState,SaveState
 
 async def get_command(ctx):
     if context[0]:
@@ -35,6 +38,18 @@ async def get_command(ctx):
 
         await store_coins_file.savecoins(ctx)
         await ctx.delete()
+
+    elif os.path.exists("CombatState.bin"):
+        combat = await LoadCombat()
+        if combat.enemy.HP <= 0 and len(combat.combatants) > 1:
+            collectorlist = ReadState()
+            collectorlist[ctx.author.id].inventory.append(combat.itemreward)
+            await ctx.send(f"{ctx.author.display_name} claims the {combat.itemreward.name}!")
+            SaveState(collectorlist)
+        else:
+            await ctx.send("You can't claim a coin right now, there are monsters nearby!")
+
+
     else:
         await ctx.send(choice(insults))
 

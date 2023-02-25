@@ -15,7 +15,7 @@ from commands_folder.check_task import *
 from pathlib import *
 from discord.utils import get
 from commands_folder.combat.collectorgen import *
-
+from commands_folder.combat.battle import *
 
 
 
@@ -47,8 +47,6 @@ async def on_ready():
         collectorlist = CheckList(False)
     print(collectorlist)
 
-    newitem = item(randint(1, 20))
-    collectorlist[431047023689596928].inventory.append(newitem)
     SaveState(collectorlist)
 
 
@@ -89,7 +87,7 @@ async def maintenancemode(ctx):
         context[14] = 1-(context[14])
 
 
-commandslist = {"echo":[1,echo_command],"get":[0,get_command],"leaderboard":[1,leaderboard_command],"debug":[1,debug],"help":[1,help_coin],"count":[0,count_coin],"give":[1,give_command],"coin":[0,view_coin],"shop":[1,shop_command],"maintenance":[0,maintenancemode],"vote":[1,vote],"inventory":[1,InventoryDisplay],"equip":[1,equip],"status":[0,status]}
+commandslist = {"echo":[1,echo_command],"get":[0,get_command],"leaderboard":[1,leaderboard_command],"debug":[1,debug],"help":[1,help_coin],"count":[0,count_coin],"give":[1,give_command],"coin":[0,view_coin],"shop":[1,shop_command],"maintenance":[0,maintenancemode],"vote":[1,vote],"inventory":[1,InventoryDisplay],"equip":[1,equip],"status":[0,status],"combatbegin":[0,startcombat],"attack":[0,attack],"battle":[0,CombatState]}
 # 0 = needs no args
 # 1 = needs args
 
