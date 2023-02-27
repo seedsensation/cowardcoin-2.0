@@ -8,8 +8,8 @@ async def leaderboard_command(ctx,args):
             styledict[item] = styles[item][1]
         sortedstyledict = sorted(styledict.items(), key=lambda x: x[1])
         print(sortedstyledict)
-        if len(sortedstyledict) > 6:
-            max = 6
+        if len(sortedstyledict) > 5:
+            max = 5
         else:
             max = len(sortedstyledict)
         output = "<a:gold:1038495846074941440> **LEADERBOARD** <a:gold:1038495846074941440>\n"
@@ -75,8 +75,8 @@ async def leaderboard_command(ctx,args):
         if len(sortedcoindict)==0:
             output +="The leaderboard is empty, sorry..."
         else:
-            if len(sortedcoindict) > 6:
-                max = 6
+            if len(sortedcoindict) > 5:
+                max = 5
             else:
                 max = len(sortedcoindict)
             output = "<a:gold:1038495846074941440> **LEADERBOARD** <a:gold:1038495846074941440>\n"
