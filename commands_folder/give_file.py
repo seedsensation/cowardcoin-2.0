@@ -1,5 +1,6 @@
 from global_context import *
 from commands_folder.style_file import stylecalc
+from commands_folder.store_coins_file import savecoins
 
 async def give_command(ctx,args):
     print(args)
@@ -26,6 +27,7 @@ async def give_command(ctx,args):
                         await stylecalc([ctx,recipientobject,amount])
                     else:
                         await ctx.send("Sent "+str(amount)+" coin"+plural+" to "+recipientobject.display_name+". You now have "+str(context[2][ctx.author.id][0])+" coins.")
+                        await savecoins(ctx)
                 print(context[2][recipient][0])
             else:
                 await ctx.send("Invalid amount given. Please check the following:\n- Your message is formatted `!coin give @recipient [amount]`\n- That you specifically gave a whole number for the amount.")
