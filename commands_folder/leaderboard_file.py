@@ -15,7 +15,7 @@ async def leaderboard_command(ctx,args):
         output = "<a:gold:1038495846074941440> **LEADERBOARD** <a:gold:1038495846074941440>\n"
         for x in range(1, max):
             user = await bot.fetch_user(sortedstyledict[-x][0])
-            output += (str(x) + ". **" + str(user.display_name) + "** - " + str(sortedstyledict[-x][1]) + " StylePoints™\n")
+            output += (str(x) + ". **" + str(user.nick) + "** - " + str(sortedstyledict[-x][1]) + " StylePoints™\n")
         await ctx.send(output)
     elif len(args) == 2 and (args[1].lower() == "lowest" or args[1].lower() == "bottom" or args[1].lower() == "reverse"):
         coins = context[2]
@@ -37,7 +37,7 @@ async def leaderboard_command(ctx,args):
                 plural = ""
             else:
                 plural = "s"
-            output += (str(x) + ". **" + str(user.display_name) + "** - " + str(sortedcoindict[-x][1]) + " coin"+plural+"\n")
+            output += (str(x) + ". **" + str(user.nick) + "** - " + str(sortedcoindict[-x][1]) + " coin"+plural+"\n")
         await ctx.send(output)
     elif len(args) == 2 and args[1].lower() == "full":
         coins = context[2]
@@ -58,7 +58,7 @@ async def leaderboard_command(ctx,args):
                     plural = ""
                 else:
                     plural = "s"
-                output += (str(x+1) + ". **" + str(user.display_name) + "** - " + str(sortedcoindict[x][1]) + " coin" + plural + "\n")
+                output += (str(x+1) + ". **" + str(user.nick) + "** - " + str(sortedcoindict[x][1]) + " coin" + plural + "\n")
         await ctx.send(output)
 
     else:
@@ -82,7 +82,7 @@ async def leaderboard_command(ctx,args):
             output = "<a:gold:1038495846074941440> **LEADERBOARD** <a:gold:1038495846074941440>\n"
             for x in range(0,max):
                 user = await bot.fetch_user(sortedcoindict[x][0])
-                output += (str(x+1)+". **"+str(user.display_name) + "** - " + str(sortedcoindict[x][1])+" coins\n")
+                output += (str(x+1)+". **"+str(user.nick) + "** - " + str(sortedcoindict[x][1])+" coins\n")
         await ctx.send(output)
 
 
