@@ -25,8 +25,8 @@ async def leaderboard_command(ctx,args):
                 coindict[item] = coins[item][0]
         sortedcoindict = sorted(coindict.items(), key=lambda x: x[1], reverse=True)
         print(sortedcoindict)
-        if len(sortedcoindict) > 6:
-            max = 6
+        if len(sortedcoindict) > 5:
+            max = 5
         else:
             max = len(sortedcoindict)
         output = "<a:gold:1038495846074941440> **BOTTOM "+str(max-1)+"** <a:gold:1038495846074941440>\n"
