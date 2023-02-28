@@ -36,7 +36,10 @@ async def get_command(ctx):
         await store_coins_file.savecoins(ctx)
         await ctx.delete()
     else:
-        await ctx.send(choice(insults))
+        output = choice(insults)
+        if output == "funny":
+            output = "buddy. there's a big storm coming for you. if you don't stop typing !get coin, I'm going to bring all of the team fortress two mercenaries to your house, and they're going to shoot ***rockets*** at you, and beat you *and* your dog with hammers. yeah that's right. i know your dog's name. it's `[{ctx.author.display_name}'S DOG]`. yeah. that's right. you scared? you scared, fucker?"
+        await ctx.send(output)
 
 
 
