@@ -55,7 +55,7 @@ async def debug(ctx,arg):
         await ctx.send("Currently not in maintenance mode")
 
 async def echo_command(ctx,args):
-    await ctx.send(args)
+    await ctx.send(args[1])
 
 async def maintenancemode(ctx):
     check_role = get(ctx.guild.roles, name="admins")
